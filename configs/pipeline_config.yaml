@@ -1,0 +1,21 @@
+pipeline:
+  raw_data_dir: "rawdata_test_ae"
+  processed_data_dir: "data/processed"
+  inputs:
+    transactions: "Transactions.csv"
+    inventory_logs: "Inventory_Logs.csv"
+    store_info: "Store_Info.csv"
+    products: "Products.csv"
+    targets: "Targets.csv"
+
+bigquery:
+  project_id: "cellphones-analytics-prod"
+  dataset_staging: "stg_cellphones"
+  dataset_intermediate: "int_cellphones"
+  dataset_marts: "marts_cellphones"
+  location: "asia-southeast1"
+
+metrics:
+  default_days_in_month: 30
+  stockout_warning_ratio_threshold: 3.0 # Inventory-to-sales ratio below this triggers stockout alert
+  overstock_warning_ratio_threshold: 15.0 # Inventory-to-sales ratio above this triggers overstock alert

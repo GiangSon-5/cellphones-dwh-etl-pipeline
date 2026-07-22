@@ -1,0 +1,47 @@
+# Config-Driven Rule Engine for CellphoneS Store Classification
+# Part 4 Requirement: Refactoring hardcoded logic into dynamic rule engine
+
+shop_classification_rules:
+  version: "1.0.0"
+  rules:
+    - classification: "Flagship_Store"
+      description: "Cửa hàng trọng điểm doanh thu cao, quy mô lớn"
+      conditions:
+        min_monthly_revenue: 1200000000 # 1.2 Tỷ VND
+        store_types: ["A", "Flagship"]
+      tier: 1
+
+    - classification: "Key_Store"
+      description: "Cửa hàng quy mô trung bình lớn, tăng trưởng ổn định"
+      conditions:
+        min_monthly_revenue: 800000000 # 800 Triệu VND
+        store_types: ["B", "Standard+"]
+      tier: 2
+
+    - classification: "Standard_Store"
+      description: "Cửa hàng tiêu chuẩn"
+      conditions:
+        min_monthly_revenue: 400000000 # 400 Triệu VND
+        store_types: ["C", "Standard"]
+      tier: 3
+
+    - classification: "Micro_Store"
+      description: "Cửa hàng nhỏ hoặc mới mở"
+      conditions:
+        min_monthly_revenue: 0
+        store_types: ["D", "Mini"]
+      tier: 4
+
+performance_tier_rules:
+  target_achievement_thresholds:
+    super_star: 1.10 # >= 110% target
+    on_track: 0.90   # >= 90% target
+    underperforming: 0.70 # >= 70% target
+    critical_warning: 0.0 # < 70% target
+
+inventory_alert_rules:
+  ratio_thresholds:
+    critical_stockout: 2.0  # Under 2 days of supply -> Cảnh báo cháy hàng khẩn cấp
+    low_inventory: 5.0     # Under 5 days -> Cảnh báo nhập hàng
+    optimal: 15.0          # 5 to 15 days -> Trạng thái tối ưu
+    overstock: 30.0        # Over 30 days -> Cảnh báo tồn kho đọng vốn

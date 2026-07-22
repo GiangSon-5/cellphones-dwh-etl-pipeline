@@ -1,0 +1,32 @@
+# Auto-detect text files and normalize line endings to LF
+* text=auto eol=lf
+
+# Code, queries, markup and configuration text files (Force LF line endings)
+*.py text eol=lf
+*.sql text eol=lf
+*.html text eol=lf
+*.css text eol=lf
+*.js text eol=lf
+*.json text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+*.md text eol=lf
+*.txt text eol=lf
+*.csv text eol=lf
+*.ipynb text eol=lf
+
+# Windows-specific scripts (Preserve CRLF line endings)
+*.bat text eol=crlf
+*.ps1 text eol=crlf
+*.cmd text eol=crlf
+
+# Binary files (Treat as pure binary, disable diff & line ending conversion)
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.pdf binary
+*.zip binary
+*.tar.gz binary
+*.pbix binary
