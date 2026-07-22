@@ -88,5 +88,10 @@ Thumbs.db
 *.db
 
 # Temporary Data & Scratch Output
-data/processed/*.parquet
+data/
+rawdata_test_ae/
 scratch/
+
+# Test PDF files
+*.pdf
+Analytics Engineer_Test.pdf
