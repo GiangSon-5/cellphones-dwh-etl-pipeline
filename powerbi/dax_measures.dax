@@ -1,0 +1,56 @@
+// ===============================================================================
+// POWER BI DAX MEASURES SPECIFICATION FOR CELLPHONES ANALYTICS DASHBOARD
+// Part 3 Assessment Requirement: Core & Advanced DAX Measures
+// ===============================================================================
+
+// 1. Core Sales & Target Measures
+[Total Sales Revenue] = 
+SUM(fact_sales[total_amount])
+
+[Total Sales Quantity] = 
+SUM(fact_sales[quantity])
+
+[Total Target Revenue] = 
+SUM(stg_targets[target_revenue])
+
+[Revenue Achievement %] = 
+DIVIDE([Total Sales Revenue], [Total Target Revenue], 0)
+
+// 2. Operational & Inventory Metrics (Daily Run Rate & Stock Cover Ratio)
+[Average Daily Run Rate (DRR)] = 
+AVERAGE(fact_inventory_daily[daily_run_rate])
+
+[Inventory to Sales Ratio (Days of Stock)] = 
+AVERAGE(fact_inventory_daily[inventory_to_sales_ratio])
+
+[Current Ending Inventory Qty] = 
+SUM(fact_inventory_daily[ending_inventory])
+
+// 3. Operational Alerting Indicators (Flags)
+[Stockout Warning Flag] = 
+IF(
+    [Inventory to Sales Ratio (Days of Stock)] <= 2.0 && [Current Ending Inventory Qty] > 0,
+    "🔴 CRITICAL STOCKOUT RISK",
+    IF(
+        [Inventory to Sales Ratio (Days of Stock)] <= 5.0,
+        "🟡 LOW INVENTORY WARNING",
+        "🟢 SAFE"
+    )
+)
+
+[Overstock Warning Flag] = 
+IF(
+    [Inventory to Sales Ratio (Days of Stock)] >= 30.0,
+    "🔵 OVERSTOCK RISK",
+    "🟢 NORMAL"
+)
+
+// 4. Advanced DAX: Dynamic Revenue Allocation Across Regions
+[Dynamic Revenue Allocation %] = 
+VAR TotalRegionRevenue = 
+    CALCULATE(
+        [Total Sales Revenue],
+        ALLSELECTED(dim_store[region])
+    )
+RETURN
+    DIVIDE([Total Sales Revenue], TotalRegionRevenue, 0)
