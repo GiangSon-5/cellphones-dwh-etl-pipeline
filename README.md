@@ -1,4 +1,4 @@
-# Báo Cáo Đánh Giá Năng Lực Analytics Engineer - Hệ Thống Data Warehouse & Analytics Pipeline CellphoneS (170+ Cửa hàng)
+# Báo Cáo  - Hệ Thống Data Warehouse & Analytics Pipeline CellphoneS (170+ Cửa hàng)
 
 🌐 **[Xem Bản Trình Báo Cáo Web Portal Trực Tuyến (Vercel Production)](https://cellphones-dwh-etl-pipeline.vercel.app/)** | 📄 **[Xem Tệp Báo Cáo Tổng Hợp Chi Tiết (PROJECT_REPORT.md)](PROJECT_REPORT.md)**
 
