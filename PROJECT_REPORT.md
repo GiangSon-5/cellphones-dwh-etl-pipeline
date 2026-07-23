@@ -61,8 +61,8 @@ Pipeline xử lý dữ liệu tự động được xây dựng bằng Python th
   * Bổ khuyết đơn hàng thiếu số lượng bằng quy tắc: `Quantity = Unit_Price / Base_Price = 1.0` (bảo toàn 380+ triệu VNĐ doanh thu).
   * Khôi phục số tồn kho cuối ngày bị thiếu bằng công thức: `Ending_Inventory = Beginning + Received - Sold`.
 * **`metrics_calculator.py` (Tính toán chỉ số)**:
-  * **Daily Run Rate (DRR)**: $\text{DRR} = \frac{\sum \text{Quantity}}{\text{Active\_Days}}$ (Tốc độ bán hàng trung bình ngày per Store & Product).
-  * **Inventory Cover Ratio**: $\text{Days\_of\_Cover} = \frac{\text{Ending\_Inventory}}{\text{DRR}}$ (Số ngày tồn kho trang trải).
+  * **Daily Run Rate (DRR)**: `DRR = Total_Sales_Qty / Active_Days` (Tốc độ bán hàng trung bình ngày per Store & Product).
+  * **Inventory Cover Ratio**: `Days_of_Cover = Ending_Inventory / DRR` (Số ngày tồn kho trang trải).
 * **`transformer.py` (Biến đổi & Ghép nối)**: Ghép nối dữ liệu đa chiều, gắn nhãn phân loại cửa hàng và tổng hợp hiệu suất.
 * **`runner.py` (Điều phối toàn cục)**: Đọc cấu hình từ `configs/pipeline_config.yaml`, kích hoạt ETL và xuất 6 file dữ liệu sạch ra `data/processed/*.csv`.
 
