@@ -1,42 +1,40 @@
 // ===============================================================================
 // POWER BI DAX VIRTUAL TABLES FOR ANALYTICS DASHBOARD
-// Part 3 Assessment Requirement: DAX Virtual Tables for Achievement & Allocation
+// CellphoneS Operational Dashboard - DAX Virtual Tables Specs
 // ===============================================================================
 
-// 1. DAX Virtual Table: Store Target Achievement Summary Table
+// 1. DAX Virtual Table: Store Target Achievement Summary & Status Table
 vtable_StoreTargetAchievement = 
 ADDCOLUMNS(
     SUMMARIZE(
-        fact_sales,
-        dim_store[store_id],
-        dim_store[store_name],
-        dim_store[region],
-        dim_store[store_type]
+        processed_transactions,
+        processed_stores[Store_ID],
+        processed_stores[Store_Name],
+        processed_stores[Region],
+        processed_stores[Store_Type]
     ),
-    "Actual_Revenue", [Total Sales Revenue],
-    "Target_Revenue", [Total Target Revenue],
-    "Achievement_Pct", [Revenue Achievement %],
+    "Actual_Revenue", CALCULATE(SUM(processed_transactions[Total_Amount])),
+    "Achievement_Pct", DIVIDE(CALCULATE(SUM(processed_transactions[Total_Amount])), 3800000000, 0),
     "Performance_Status", 
         SWITCH(
             TRUE(),
-            [Revenue Achievement %] >= 1.10, "Super Star",
-            [Revenue Achievement %] >= 0.90, "On Track",
-            [Revenue Achievement %] >= 0.70, "Underperforming",
+            DIVIDE(CALCULATE(SUM(processed_transactions[Total_Amount])), 3800000000, 0) >= 1.10, "Super Star",
+            DIVIDE(CALCULATE(SUM(processed_transactions[Total_Amount])), 3800000000, 0) >= 0.90, "On Track",
+            DIVIDE(CALCULATE(SUM(processed_transactions[Total_Amount])), 3800000000, 0) >= 0.75, "Underperforming",
             "Critical Warning"
         )
 )
 
-// 2. DAX Virtual Table: Regional Revenue Allocation Matrix Table
-vtable_RegionalRevenueAllocation = 
-VAR GrandTotalSales = CALCULATE(SUM(fact_sales[total_amount]), ALL(dim_store))
+// 2. DAX Virtual Table: Store Type Revenue Allocation Percentage Table
+vtable_StoreTypeRevenueAllocation = 
+VAR GrandTotalSales = CALCULATE(SUM(processed_transactions[Total_Amount]), ALL(processed_transactions))
 RETURN
 ADDCOLUMNS(
     SUMMARIZE(
-        dim_store,
-        dim_store[region],
-        dim_store[regional_sales_manager]
+        processed_stores,
+        processed_stores[Store_Type]
     ),
-    "Regional_Revenue", [Total Sales Revenue],
+    "StoreType_Revenue", CALCULATE(SUM(processed_transactions[Total_Amount])),
     "Grand_Total_Revenue", GrandTotalSales,
-    "Revenue_Allocation_Pct", DIVIDE([Total Sales Revenue], GrandTotalSales, 0)
+    "Revenue_Allocation_Pct", DIVIDE(CALCULATE(SUM(processed_transactions[Total_Amount])), GrandTotalSales, 0)
 )
