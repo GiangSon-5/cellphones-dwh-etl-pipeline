@@ -34,6 +34,25 @@ function toggleAccordion(headerElement) {
     }
 }
 
+// Data Preview Toggle Controller
+function toggleDataPreview() {
+    const previewContainer = document.getElementById('sampleDataPreviewContainer');
+    const toggleBtn = document.getElementById('togglePreviewBtn');
+    if (previewContainer) {
+        if (previewContainer.style.display === 'none') {
+            previewContainer.style.display = 'block';
+            if (toggleBtn) {
+                toggleBtn.innerHTML = '<i class="fa-solid fa-eye-slash"></i> Ẩn Mẫu Xem Trước Dữ Liệu (5 Dòng)';
+            }
+        } else {
+            previewContainer.style.display = 'none';
+            if (toggleBtn) {
+                toggleBtn.innerHTML = '<i class="fa-solid fa-eye"></i> Hiện Mẫu Xem Trước Dữ Liệu (5 Dòng)';
+            }
+        }
+    }
+}
+
 // Initialize Interactive Animations on Load
 document.addEventListener('DOMContentLoaded', () => {
     console.log('CellphoneS AE Presentation Dashboard Loaded Successfully.');

@@ -62,7 +62,7 @@
     <nav class="tabs-nav-container">
         <div class="tabs-nav" role="tablist">
             <button class="tab-btn active" onclick="switchTab('tab1', this)">
-                <i class="fa-solid fa-bullseye"></i> Tab 1: Giới Thiệu Đề Bài & Yêu Cầu
+                <i class="fa-solid fa-bullseye"></i> Tab 1: Tổng Quan Dự Án & Bối Cảnh
             </button>
             <button class="tab-btn" onclick="switchTab('tab2', this)">
                 <i class="fa-solid fa-table-cells"></i> Tab 2: Giới Thiệu Dữ Liệu
@@ -82,306 +82,133 @@
     <!-- Main Dynamic Content Container -->
     <main>
 
-        <!-- TAB 1: GIỚI THIỆU ĐỀ BÀI & YÊU CẦU DỰ ÁN (EXECUTIVE SUMMARY) -->
+        <!-- TAB 1: GIỚI THIỆU ĐỀ BÀI & TỔNG QUAN DỰ ÁN (EXECUTIVE OVERVIEW) -->
         <section id="tab1" class="tab-panel active">
             
-            <!-- 1. BỐI CẢNH NGHIỆP VỤ & BÀI TOÁN BÁN LẺ CELLPHONES -->
+            <!-- 1. BỐI CẢNH NGHIỆP VỤ & TỔNG QUAN DỰ ÁN -->
             <div class="content-card">
                 <div class="card-header-title">
-                    <i class="fa-solid fa-building-user"></i> Bối Cảnh Nghiệp Vụ (Business Case) & Đặt Vấn Đề
+                    <i class="fa-solid fa-building-user"></i> Tổng Quan Dự Án & Bối Cảnh Vận Hành Chuỗi Bán Lẻ CellphoneS
                 </div>
                 <p style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 1rem; line-height: 1.8;">
-                    Dự án tập trung giải quyết bài toán quản trị dữ liệu vận hành chuỗi bán lẻ thiết bị công nghệ <strong>CellphoneS</strong> với quy mô hơn 170 cửa hàng trên toàn quốc. 
-                    Trong môi trường kinh doanh bán lẻ tốc độ cao, hệ thống dữ liệu giao dịch POS, nhật ký tồn kho daily, danh mục sản phẩm và hạn mức chỉ tiêu doanh thu bị phân mảnh trên nhiều nền tảng riêng biệt. 
-                    Điều này dẫn đến tình trạng báo cáo bị chậm trễ, dữ liệu thiếu tính nhất quán và gây bất cập lớn cho Ban Giám đốc trong việc ra quyết định điều phối hàng hóa và gán KPI kinh doanh.
+                    Dự án <strong>CellphoneS Analytics Engineering & Power BI Executive Dashboard</strong> được thiết kế nhằm giải quyết bài toán quản trị vận hành và theo dõi đọng vốn tồn kho cho chuỗi bán lẻ thiết bị công nghệ CellphoneS với quy mô hơn 170 điểm bán trên toàn quốc. 
+                    Dự án yêu cầu xây dựng quy trình dữ liệu tự động hóa end-to-end từ xử lý dữ liệu thô POS, thiết kế Kho dữ liệu Data Warehouse Star Schema, trực quan hóa trên Power BI Desktop, đến quản trị hệ thống và codebase.
                 </p>
 
-                <div class="grid-3">
-                    <div class="feature-box" style="border-top: 3px solid var(--accent-rose);">
-                        <div class="feature-icon" style="color: var(--accent-rose);"><i class="fa-solid fa-triangle-exclamation"></i></div>
-                        <div class="feature-title">1. Dữ Liệu Phân Mảnh</div>
+                <div class="grid-4">
+                    <div class="feature-box" style="border-top: 3px solid var(--accent-purple);">
+                        <div class="feature-title" style="color: var(--accent-purple);"><i class="fa-solid fa-diagram-project"></i> Phần 1: Star Schema</div>
                         <div class="feature-desc">
-                            5 luồng dữ liệu thô (Transactions, Inventory Logs, Store Info, Products, Targets) lưu trữ rời rạc, không đồng bộ định dạng ngày tháng và chứa các bản ghi khuyết thiếu/trùng lặp POS.
+                            Thiết kế mô hình Kho dữ liệu Star Schema 3 tầng, vẽ sơ đồ ERD và lập luận áp dụng kỹ thuật <span class="code-tag">SCD Type 2</span> cho danh mục sản phẩm.
+                        </div>
+                    </div>
+                    <div class="feature-box" style="border-top: 3px solid var(--accent-blue);">
+                        <div class="feature-title" style="color: var(--accent-blue);"><i class="fa-solid fa-code-branch"></i> Phần 2: Python Pipeline</div>
+                        <div class="feature-desc">
+                            Làm sạch 1,800+ giao dịch POS, khử trùng lặp, bổ khuyết dữ liệu khuyết thiếu và tự động hóa tính toán chỉ số <span class="code-tag">DRR</span> & <span class="code-tag">Inventory Cover</span>.
+                        </div>
+                    </div>
+                    <div class="feature-box" style="border-top: 3px solid var(--accent-emerald);">
+                        <div class="feature-title" style="color: var(--accent-emerald);"><i class="fa-solid fa-chart-pie"></i> Phần 3: Power BI Analytics</div>
+                        <div class="feature-desc">
+                            Trực quan hóa Executive Dashboard 6 visual, lập trình 2 công thức DAX Virtual Tables tính % Target và % Revenue Allocation.
                         </div>
                     </div>
                     <div class="feature-box" style="border-top: 3px solid var(--accent-amber);">
-                        <div class="feature-icon" style="color: var(--accent-amber);"><i class="fa-solid fa-boxes-packing"></i></div>
-                        <div class="feature-title">2. Rủi Ro Tồn Đọng & Cháy Hàng</div>
+                        <div class="feature-title" style="color: var(--accent-amber);"><i class="fa-solid fa-sliders"></i> Phần 4: Governance</div>
                         <div class="feature-desc">
-                            Thiếu chỉ số đo lường chỉ báo sớm về tốc độ bán hàng ngày (<strong>DRR</strong>), nguy cơ đọng vốn hàng hóa (<strong>Overstock ≥ 30 ngày</strong>) và rủi ro đứt gãy chuỗi cung ứng (<strong>Stockout</strong>).
-                        </div>
-                    </div>
-                    <div class="feature-box" style="border-top: 3px solid var(--accent-indigo);">
-                        <div class="feature-icon" style="color: var(--accent-indigo);"><i class="fa-solid fa-server"></i></div>
-                        <div class="feature-title">3. Thiếu Chuẩn DWH & BI</div>
-                        <div class="feature-desc">
-                            Chưa có mô hình Data Warehouse Star Schema chuẩn hóa trên BigQuery, chưa áp dụng quản lý lịch sử giá sản phẩm (<strong>SCD Type 2</strong>) và thiếu hệ thống DAX Virtual Tables trên Power BI.
+                            Tư duy hệ thống xử lý sự cố chi phí BigQuery (5 bước Troubleshooting & 5 ví dụ SQL 1-to-1) và tái cấu trúc mã nguồn Python <span class="code-tag">classify_shop</span>.
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- 2. MA TRẬN TỔNG QUAN CHI TIẾT: YÊU CẦU ➔ CÁCH LÀM ➔ KẾT QUẢ -->
+            <!-- 2. TÓM TẮT LUỒNG CÁC BƯỚC THỰC HIỆN TỪ EDA ĐẾN KẾT QUẢ -->
             <div class="content-card">
                 <div class="card-header-title">
-                    <i class="fa-solid fa-list-check"></i> Ma Trận Tổng Quan Dự Án: Yêu Cầu ➔ Cách Làm (Giải Pháp) ➔ Kết Quả Thực Tế
+                    <i class="fa-solid fa-route"></i> Tóm Tắt Luồng Các Bước Thực Hiện (EDA ➔ Data Pipeline ➔ DWH ➔ Power BI ➔ Governance)
                 </div>
                 <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
-                    Bảng tổng hợp đối chiếu toàn diện giữa 3 Phần yêu cầu cốt lõi của đề bài, giải pháp kỹ thuật thực thi và kết quả sản phẩm đầu ra thực tế:
-                </p>
-                
-                <div class="table-responsive">
-                    <table style="width: 100%; border-collapse: collapse;">
-                        <thead>
-                            <tr style="background: rgba(99, 102, 241, 0.12);">
-                                <th style="width: 25%; padding: 1rem; text-align: left; color: var(--accent-purple); font-weight: 700; border-bottom: 2px solid var(--border-highlight);">
-                                    📌 Yêu Cầu Đề Bài Gốc
-                                </th>
-                                <th style="width: 50%; padding: 1rem; text-align: left; color: var(--accent-blue); font-weight: 700; border-bottom: 2px solid var(--border-highlight);">
-                                    🛠️ Cách Làm (Giải Pháp Kỹ Thuật)
-                                </th>
-                                <th style="width: 25%; padding: 1rem; text-align: left; color: var(--accent-emerald); font-weight: 700; border-bottom: 2px solid var(--border-highlight);">
-                                    🎯 Kết Quả Đầu Ra Thực Tế
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- PHẦN 1 -->
-                            <tr style="border-bottom: 1px solid var(--border-color);">
-                                <td style="padding: 1.25rem; vertical-align: top;">
-                                    <span class="badge-tag" style="background: rgba(99, 102, 241, 0.2); color: var(--accent-purple); margin-bottom: 0.5rem; display: inline-block;">PHẦN 1: DATA MODELING & SCD TYPE 2</span><br>
-                                    <ul style="padding-left: 1.2rem; margin-top: 0.5rem; color: var(--text-primary); font-size: 0.92rem; line-height: 1.7;">
-                                        <li>Thiết kế mô hình Data Warehouse Star Schema trên BigQuery.</li>
-                                        <li>Vẽ sơ đồ ERD mô hình hóa quan hệ giữa các bảng Dimension & Fact.</li>
-                                        <li>Trả lời câu hỏi tư duy lựa chọn SCD cho sản phẩm khi giá biến động liên tục.</li>
-                                    </ul>
-                                </td>
-                                <td style="padding: 1.25rem; vertical-align: top;">
-                                    <ul style="padding-left: 1.2rem; color: var(--text-primary); font-size: 0.92rem; line-height: 1.7;">
-                                        <li>Xây dựng mô hình kiến trúc Star Schema 3 tầng: <span class="code-tag">Staging</span> <i class="fa-solid fa-arrow-right" style="font-size: 0.8rem; margin: 0 4px; color: var(--accent-purple);"></i> <span class="code-tag">Intermediate</span> <i class="fa-solid fa-arrow-right" style="font-size: 0.8rem; margin: 0 4px; color: var(--accent-purple);"></i> <span class="code-tag">Marts</span>.</li>
-                                        <li style="margin-top: 0.4rem;">
-                                            Áp dụng <strong>SCD Type 2</strong> cho bảng <span class="code-tag">dim_products_scd2</span> bằng thuật toán Hash Surrogate Key:
-                                            <div style="margin: 4px 0;"><span class="code-tag">FARM_FINGERPRINT(CONCAT(product_id, '_', base_price))</span></div>
-                                        </li>
-                                        <li style="margin-top: 0.4rem;">Bổ sung 3 trường kiểm soát thời gian: <span class="code-tag">valid_from</span>, <span class="code-tag">valid_to</span>, và <span class="code-tag">is_current</span> để lưu vết lịch sử biến động giá mà không bị ghi đè.</li>
-                                    </ul>
-                                </td>
-                                <td style="padding: 1.25rem; vertical-align: top;">
-                                    <ul style="padding-left: 1.2rem; color: var(--text-primary); font-size: 0.92rem; line-height: 1.7;">
-                                        <li>Mã SQL DDL BigQuery được chuẩn hóa 100% trong tệp <span class="code-tag">sql/bigquery_ddl.sql</span>.</li>
-                                        <li>Bảo toàn 100% lịch sử biến động giá sản phẩm quá khứ.</li>
-                                        <li>Tối ưu hóa chi phí truy vấn (giảm 90% scan) nhờ <span class="code-tag">PARTITION BY date</span> và <span class="code-tag">CLUSTER BY store_id, product_id</span>.</li>
-                                    </ul>
-                                </td>
-                            </tr>
-
-                            <!-- PHẦN 2 -->
-                            <tr style="border-bottom: 1px solid var(--border-color);">
-                                <td style="padding: 1.25rem; vertical-align: top;">
-                                    <span class="badge-tag" style="background: rgba(56, 189, 248, 0.2); color: var(--accent-blue); margin-bottom: 0.5rem; display: inline-block;">PHẦN 2: DATA PIPELINE ETL & METRICS</span><br>
-                                    <ul style="padding-left: 1.2rem; margin-top: 0.5rem; color: var(--text-primary); font-size: 0.92rem; line-height: 1.7;">
-                                        <li><strong>Làm sạch (Clean)</strong>: Xử lý dữ liệu Null, khử trùng lặp giao dịch POS và chuẩn hóa ép kiểu ngày tháng hỗn hợp.</li>
-                                        <li><strong>Biến đổi (Transform)</strong>: Lập trình logic tính toán cột <span class="code-tag">Daily_Run_Rate</span> và gộp tồn kho/doanh số tính <span class="code-tag">Inventory_to_Sales_Ratio</span>.</li>
-                                        <li>Xuất tệp dữ liệu sạch chuẩn hóa.</li>
-                                    </ul>
-                                </td>
-                                <td style="padding: 1.25rem; vertical-align: top;">
-                                    <ul style="padding-left: 1.2rem; color: var(--text-primary); font-size: 0.92rem; line-height: 1.7;">
-                                        <li>Lập trình mô hình OOP Python sạch phân tách 3 module chính:
-                                            <ul style="margin-top: 0.4rem; margin-left: 0.5rem; list-style-type: square;">
-                                                <li style="margin-bottom: 0.5rem;">
-                                                    <span class="code-tag">src/cleaner.py</span>: Khử trùng lặp POS, ép kiểu ngày hỗn hợp (<span class="code-tag">dayfirst=True, format='mixed'</span>).
-                                                    <div style="margin: 4px 0;"><span class="code-tag">Quantity = Unit_Price / Base_Price = 1.0</span></div>
-                                                    <div style="margin: 4px 0;"><span class="code-tag">Ending_Inventory = Beginning + Received - Sold</span></div>
-                                                </li>
-                                                <li style="margin-bottom: 0.5rem;">
-                                                    <span class="code-tag">src/metrics_calculator.py</span>: Tính toán các chỉ số cốt lõi:
-                                                    <div style="margin: 4px 0;"><span class="code-tag">DRR = Total_Sales_Qty / Active_Days</span></div>
-                                                    <div style="margin: 4px 0;"><span class="code-tag">Ratio = Ending_Inventory / DRR</span></div>
-                                                </li>
-                                                <li><span class="code-tag">src/runner.py</span>: Tự động hóa Pipeline tập trung.</li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </td>
-                                <td style="padding: 1.25rem; vertical-align: top;">
-                                    <ul style="padding-left: 1.2rem; color: var(--text-primary); font-size: 0.92rem; line-height: 1.7;">
-                                        <li>Tệp giao dịch bán hàng đã làm sạch: <span class="code-tag">cleaned_transactions.csv</span>.</li>
-                                        <li>Tệp dữ liệu tích hợp tồn kho & doanh số: <span class="code-tag">integrated_daily_inventory_sales.csv</span>.</li>
-                                        <li>Đạt <strong>100% Pass Automated Pytest Suite</strong> (5/5 unit tests trong <span class="code-tag">tests/</span>).</li>
-                                    </ul>
-                                </td>
-                            </tr>
-
-                            <!-- PHẦN 3 -->
-                            <tr>
-                                <td style="padding: 1.25rem; vertical-align: top;">
-                                    <span class="badge-tag" style="background: rgba(16, 185, 129, 0.2); color: var(--accent-emerald); margin-bottom: 0.5rem; display: inline-block;">PHẦN 3: POWER BI DAX ANALYTICS</span><br>
-                                    <ul style="padding-left: 1.2rem; margin-top: 0.5rem; color: var(--text-primary); font-size: 0.92rem; line-height: 1.7;">
-                                        <li>Xây dựng mô hình Data Model Star Schema trên Power BI.</li>
-                                        <li>Viết mã DAX Virtual Tables tính chỉ số <span class="code-tag">% Target Achievement</span> và phân bổ doanh thu theo Vùng miền / Phân loại cửa hàng.</li>
-                                    </ul>
-                                </td>
-                                <td style="padding: 1.25rem; vertical-align: top;">
-                                    <ul style="padding-left: 1.2rem; color: var(--text-primary); font-size: 0.92rem; line-height: 1.7;">
-                                        <li>Thiết kế quan hệ 1-nhiều (1-to-many) chuẩn hóa giữa các bảng Dimension và Fact.</li>
-                                        <li style="margin-top: 0.4rem;">Viết mã DAX Virtual Tables tính toán trực tiếp trong bộ nhớ RAM VertiPaq Engine:
-                                            <ul style="margin-top: 0.4rem; margin-left: 0.5rem; list-style-type: square;">
-                                                <li style="margin-bottom: 0.4rem;">
-                                                    <span class="code-tag">vtable_StoreTargetAchievement</span>: Dùng <span class="code-tag">SUMMARIZE</span> & <span class="code-tag">ADDCOLUMNS</span> đo lường % Target.
-                                                </li>
-                                                <li>
-                                                    <span class="code-tag">vtable_RegionalRevenueAllocation</span>: Phân bổ doanh thu theo Cấp quản lý (<span class="code-tag">RSM</span>, <span class="code-tag">AM</span>) & Phân loại cửa hàng (<span class="code-tag">Store_Type</span>).
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </td>
-                                <td style="padding: 1.25rem; vertical-align: top;">
-                                    <ul style="padding-left: 1.2rem; color: var(--text-primary); font-size: 0.92rem; line-height: 1.7;">
-                                        <li>Đo lường Tỷ lệ hoàn thành chỉ tiêu doanh thu Target (đạt từ <strong>45.5% đến 57.8%</strong> ở các tháng cao điểm Quý 3/2026).</li>
-                                        <li>Báo cáo Dashboard phân bổ doanh thu theo Loại cửa hàng (Flagship vs Key Store) và cảnh báo tồn kho thời gian thực.</li>
-                                    </ul>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <!-- 3. PHẦN 1 TRẢ LỜI TRỰC TIẾP: SƠ ĐỒ ERD & CÂU HỎI TƯ DUY SCD TYPE 2 -->
-            <div class="content-card">
-                <div class="card-header-title">
-                    <i class="fa-solid fa-diagram-project"></i> PHẦN 1: Sơ Đồ ERD Data Warehouse & Giải Đáp Câu Hỏi Tư Duy SCD Type 2
-                </div>
-                <p style="color: var(--text-secondary); margin-bottom: 1.25rem;">
-                    Chi tiết sơ đồ thực thể liên kết (ERD) thể hiện cấu trúc Star Schema trên BigQuery và câu trả lời trực tiếp cho câu hỏi tư duy chiến lược Slowly Changing Dimension (SCD):
+                    Tổng quan quy trình thực hiện dự án theo chuẩn Analytics Engineering từ khâu khám phá dữ liệu ban đầu đến sản phẩm đầu ra hoàn chỉnh:
                 </p>
 
-                <!-- ẢNH ERD -->
-                <div style="text-align: center; margin-bottom: 1.5rem;">
-                    <img src="assets/images/ERD.png" alt="Sơ đồ ERD Mô hình hóa dữ liệu Data Warehouse CellphoneS" style="max-width: 100%; height: auto; border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.15); box-shadow: 0 8px 30px rgba(0,0,0,0.4);">
-                </div>
-
-                <!-- CHÚ THÍCH MỐI QUAN HỆ HÌNH ERD -->
-                <div style="background: rgba(99, 102, 241, 0.08); padding: 1.25rem; border-left: 4px solid var(--accent-purple); border-radius: 6px; font-size: 0.95rem; line-height: 1.8; color: var(--text-primary); margin-bottom: 1.5rem;">
-                    <strong style="color: var(--accent-purple); font-size: 1rem;"><i class="fa-solid fa-link"></i> Chú Thích Mối Quan Hệ Chi Tiết Giữa Các Bảng Trong Mô Hình ERD Star Schema</strong>:
-                    <ul style="margin-top: 0.6rem; padding-left: 1.2rem; list-style-type: none;">
-                        <li style="margin-bottom: 0.5rem;">
-                            🔹 <strong><span class="code-tag">dim_store</span> <i class="fa-solid fa-arrow-right" style="color: var(--accent-blue); font-size: 0.8rem; margin: 0 4px;"></i> <span class="code-tag">fact_sales</span> (1-N)</strong>: 170+ cửa hàng phát sinh nhiều giao dịch bán hàng.
-                        </li>
-                        <li style="margin-bottom: 0.5rem;">
-                            🔹 <strong><span class="code-tag">dim_store</span> <i class="fa-solid fa-arrow-right" style="color: var(--accent-blue); font-size: 0.8rem; margin: 0 4px;"></i> <span class="code-tag">fact_inventory_daily</span> (1-N)</strong>: Cửa hàng theo dõi xuất/nhập/tồn kho hằng ngày.
-                        </li>
-                        <li style="margin-bottom: 0.5rem;">
-                            🔹 <strong><span class="code-tag">dim_product</span> <i class="fa-solid fa-arrow-right" style="color: var(--accent-purple); font-size: 0.8rem; margin: 0 4px;"></i> <span class="code-tag">fact_sales</span> (1-N)</strong>: Sản phẩm được bán ra trên các đơn hàng.
-                        </li>
-                        <li>
-                            🔹 <strong><span class="code-tag">dim_product</span> <i class="fa-solid fa-arrow-right" style="color: var(--accent-purple); font-size: 0.8rem; margin: 0 4px;"></i> <span class="code-tag">fact_inventory_daily</span> (1-N)</strong>: Sản phẩm được theo dõi tồn kho daily.
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- CÂU HỎI TƯ DUY SCD TYPE 2 -->
-                <div style="background: rgba(16, 185, 129, 0.08); padding: 1.25rem; border-left: 4px solid var(--accent-emerald); border-radius: 6px; font-size: 0.95rem; line-height: 1.8; color: var(--text-primary);">
-                    <strong style="color: var(--accent-emerald); font-size: 1rem;"><i class="fa-solid fa-brain"></i> Trả Lời Câu Hỏi Tư Duy: Áp Dụng SCD Loại Mấy Cho Bảng Dimension Sản Phẩm Và Tại Sao?</strong>
-                    <div style="margin-top: 0.75rem; color: var(--text-primary);">
-                        <p style="margin-bottom: 0.75rem;">
-                            👉 <strong>Lựa chọn giải pháp: Áp dụng SCD Loại 2 (Slowly Changing Dimension Type 2) cho bảng <span class="code-tag">dim_products_scd2</span>.</strong>
-                        </p>
-                        <p style="margin-bottom: 0.75rem;">
-                            💡 <strong>Giải thích lý do kỹ thuật & nghiệp vụ bán lẻ</strong>:
-                        </p>
-                        <ul style="padding-left: 1.2rem; margin-top: 0.5rem;">
-                            <li style="margin-bottom: 0.5rem;">
-                                Trong ngành bán lẻ thiết bị di động, đơn giá niêm yết (<span class="code-tag">Base_Price</span>) và chính sách giá biến động liên tục theo các đợt ra mắt sản phẩm mới hoặc chương trình khuyến mãi (Promotion).
-                            </li>
-                            <li style="margin-bottom: 0.5rem;">
-                                Nếu áp dụng <strong>SCD Type 1 (Ghi đè - Overwrite)</strong>: Khi giá bán thay đổi, hệ thống sẽ ghi đè giá mới lên bản ghi cũ. Điều này khiến toàn bộ các đơn hàng giao dịch phát sinh trong quá khứ bị tính toán lại theo đơn giá mới, gây sai lệch nghiêm trọng báo cáo doanh thu lịch sử.
-                            </li>
-                            <li>
-                                Khi áp dụng <strong>SCD Type 2</strong>: Mỗi lần giá sản phẩm thay đổi, hệ thống sẽ chèn thêm 1 dòng bản ghi mới với khóa thay thế Surrogate Key duy nhất <span class="code-tag">product_sk = FARM_FINGERPRINT(CONCAT(product_id, '_', base_price))</span> cùng 3 trường thời gian: <span class="code-tag">valid_from</span>, <span class="code-tag">valid_to</span>, và cờ hiệu lực hiện tại <span class="code-tag">is_current</span>. Nhờ đó bảo toàn 100% lịch sử biến động giá quá khứ mà không bao giờ bị ghi đè.
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 4. PHẦN 2 TRẢ LỜI TRỰC TIẾP: PYTHON DATA PIPELINE ETL & METRICS FORMULAS -->
-            <div class="content-card">
-                <div class="card-header-title">
-                    <i class="fa-solid fa-code"></i> PHẦN 2: Giải Pháp Python Data Pipeline ETL, Công Thức Biến Đổi & Tệp Đầu Ra
-                </div>
-                <p style="color: var(--text-secondary); margin-bottom: 1.25rem;">
-                    Trình bày chi tiết đoạn script kiến trúc Python OOP chuẩn Data Engineering giải quyết trọn vẹn các yêu cầu Clean, Transform và Output:
-                </p>
-
-                <div class="grid-3" style="margin-bottom: 1.5rem;">
-                    <!-- CLEAN -->
-                    <div style="background: rgba(255, 255, 255, 0.02); padding: 1.25rem; border-radius: 10px; border: 1px solid var(--border-highlight);">
-                        <h5 style="font-size: 1rem; font-weight: 700; color: var(--accent-rose); margin-bottom: 0.75rem;">
-                            <i class="fa-solid fa-broom"></i> 1. Làm Sạch (Clean)
-                        </h5>
-                        <ul style="padding-left: 1.1rem; font-size: 0.9rem; line-height: 1.7; color: var(--text-secondary);">
-                            <li><strong>Xử lý Null</strong>: Bổ khuyết <span class="code-tag">Quantity = Unit_Price / Base_Price = 1.0</span> cho 19 hóa đơn.</li>
-                            <li><strong>Loại bỏ trùng lặp POS</strong>: Khử 15 bản ghi trùng lặp <span class="code-tag">Transaction_ID</span> giữ bản ghi hợp lệ duy nhất.</li>
-                            <li><strong>Chuẩn hóa Datetime</strong>: Parse định dạng ngày hỗn hợp với <span class="code-tag">dayfirst=True, format='mixed'</span>.</li>
-                            <li><strong>Khôi phục kho</strong>: Suy luận kế toán kho <span class="code-tag">Ending_Inventory = Beginning + Received - Sold</span>.</li>
-                        </ul>
+                <div class="pipeline-flow" style="margin-bottom: 1.5rem;">
+                    <!-- BƯỚC 1 -->
+                    <div class="pipeline-step">
+                        <div class="pipeline-step-num">1</div>
+                        <div class="pipeline-step-content">
+                            <div class="pipeline-step-title">Khám Phá & Chẩn Đoán Dữ Liệu Ban Đầu (EDA - Tab 3)</div>
+                            <div class="pipeline-step-tech">Python Jupyter Notebook • Data Profiling • Null & Duplicate Audit</div>
+                            <p style="color: var(--text-secondary); font-size: 0.88rem; line-height: 1.6; margin-top: 0.3rem;">
+                                Phân tích chẩn đoán 5 tệp dữ liệu thô, phát hiện 15 bản ghi trùng lặp POS, 19 bản ghi Null và bất đồng bộ định dạng ngày tháng.
+                            </p>
+                        </div>
                     </div>
 
-                    <!-- TRANSFORM -->
-                    <div style="background: rgba(255, 255, 255, 0.02); padding: 1.25rem; border-radius: 10px; border: 1px solid var(--border-highlight);">
-                        <h5 style="font-size: 1rem; font-weight: 700; color: var(--accent-blue); margin-bottom: 0.75rem;">
-                            <i class="fa-solid fa-gears"></i> 2. Biến Đổi (Transform)
-                        </h5>
-                        <ul style="padding-left: 1.1rem; font-size: 0.9rem; line-height: 1.7; color: var(--text-secondary);">
-                            <li>
-                                <strong>Tính toán cột Daily_Run_Rate (DRR)</strong>:
-                                <div style="margin: 4px 0;"><span class="code-tag">DRR = Total_Sales_Qty / Active_Days</span></div>
-                            </li>
-                            <li style="margin-top: 0.5rem;">
-                                <strong>Tính Tỷ lệ Tồn kho / Doanh số (Ratio)</strong>:
-                                <div style="margin: 4px 0;"><span class="code-tag">Ratio = Ending_Inventory / DRR</span></div>
-                            </li>
-                            <li style="margin-top: 0.5rem;">
-                                <strong>Gán nhãn Cảnh báo Kho</strong>: Overstock (≥30 ngày), Stockout (≤2 ngày), Low Stock (≤5 ngày), Optimal.
-                            </li>
-                        </ul>
+                    <!-- BƯỚC 2 -->
+                    <div class="pipeline-step">
+                        <div class="pipeline-step-num">2</div>
+                        <div class="pipeline-step-content">
+                            <div class="pipeline-step-title">Thiết Kế Kho Dữ Liệu Star Schema & Kỹ Thuật SCD Type 2 (Phần 1 - Tab 4)</div>
+                            <div class="pipeline-step-tech">Data Warehouse Architecture • ERD Modeling • SCD Type 2</div>
+                            <p style="color: var(--text-secondary); font-size: 0.88rem; line-height: 1.6; margin-top: 0.3rem;">
+                                Mô hình hóa ERD Star Schema 3 tầng, trả lời câu hỏi tư duy áp dụng <span class="code-tag">SCD Type 2</span> cho sản phẩm nhằm bảo toàn lịch sử đơn giá quá khứ khi biến động do khuyến mãi.
+                            </p>
+                        </div>
                     </div>
 
-                    <!-- OUTPUT -->
-                    <div style="background: rgba(255, 255, 255, 0.02); padding: 1.25rem; border-radius: 10px; border: 1px solid var(--border-highlight);">
-                        <h5 style="font-size: 1rem; font-weight: 700; color: var(--accent-emerald); margin-bottom: 0.75rem;">
-                            <i class="fa-solid fa-file-export"></i> 3. Tệp Đầu Ra (Output)
-                        </h5>
-                        <ul style="padding-left: 1.1rem; font-size: 0.9rem; line-height: 1.7; color: var(--text-secondary);">
-                            <li><strong>Tệp giao dịch sạch</strong>: <span class="code-tag">cleaned_transactions.csv</span> (1,800 bản ghi).</li>
-                            <li><strong>Tệp dữ liệu tích hợp kho & doanh số</strong>: <span class="code-tag">integrated_daily_inventory_sales.csv</span>.</li>
-                            <li><strong>Sẵn sàng nạp DWH BigQuery</strong>: Cấu trúc hóa sẵn sàng cho tầng Staging & Marts.</li>
-                            <li><strong>Automated Pytest</strong>: Đạt <strong>100% Pass Rate (5/5 tests)</strong> trong module <span class="code-tag">tests/</span>.</li>
-                        </ul>
+                    <!-- BƯỚC 3 -->
+                    <div class="pipeline-step">
+                        <div class="pipeline-step-num">3</div>
+                        <div class="pipeline-step-content">
+                            <div class="pipeline-step-title">Lập Trình Python ETL Data Pipeline (Phần 2 - Tab 4)</div>
+                            <div class="pipeline-step-tech">Python OOP • Pandas Data Clean • Metrics Engine (DRR & Cover)</div>
+                            <p style="color: var(--text-secondary); font-size: 0.88rem; line-height: 1.6; margin-top: 0.3rem;">
+                                Xây dựng module Python OOP làm sạch data POS, bổ khuyết Null, tính toán tốc độ bán hàng ngày <span class="code-tag">DRR</span> và tỷ lệ tồn kho trang trải <span class="code-tag">Inventory Cover</span>.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- BƯỚC 4 -->
+                    <div class="pipeline-step">
+                        <div class="pipeline-step-num">4</div>
+                        <div class="pipeline-step-content">
+                            <div class="pipeline-step-title">Trực Quan Hóa & Viết Mã DAX Nâng Cao Trực Tiếp Trên Power BI (Phần 3 - Tab 4)</div>
+                            <div class="pipeline-step-tech">Power BI Desktop • DAX Virtual Tables • UI/UX Operational Dashboard</div>
+                            <p style="color: var(--text-secondary); font-size: 0.88rem; line-height: 1.6; margin-top: 0.3rem;">
+                                Xây dựng Dashboard điều hành 6 visual chuyên nghiệp, lập trình 2 công thức DAX Virtual Tables tính % Target và % Phân bổ doanh thu.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- BƯỚC 5 -->
+                    <div class="pipeline-step">
+                        <div class="pipeline-step-num">5</div>
+                        <div class="pipeline-step-content">
+                            <div class="pipeline-step-title">Tư Duy Hệ Thống & Quản Trị Codebase Kỹ Thuật (Phần 4 - Tab 4)</div>
+                            <div class="pipeline-step-tech">BigQuery Troubleshooting • SQL Optimization • Python Code Governance</div>
+                            <p style="color: var(--text-secondary); font-size: 0.88rem; line-height: 1.6; margin-top: 0.3rem;">
+                                Điều tra 5 bước sự cố chi phí BigQuery, áp dụng 5 ví dụ SQL tối ưu khớp 1-1 và tái cấu trúc hàm Python <span class="code-tag">classify_shop</span> theo Config-Driven Architecture.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- BƯỚC 6 -->
+                    <div class="pipeline-step">
+                        <div class="pipeline-step-num">6</div>
+                        <div class="pipeline-step-content">
+                            <div class="pipeline-step-title">Xuất Sản Phẩm Đầu Ra & Kiểm Thử Tự Động (Tab 5)</div>
+                            <div class="pipeline-step-tech">Processed CSV Artefacts • Automated Pytest 100% Pass</div>
+                            <p style="color: var(--text-secondary); font-size: 0.88rem; line-height: 1.6; margin-top: 0.3rem;">
+                                Xuất các tệp dữ liệu sạch CSV chuẩn hóa và đạt 100% Pass Automated Pytest Suite.
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- 5. THANH ĐIỀU HƯỚNG NHANH SANG CÁC TAB KHÁC -->
-            <div class="content-card" style="text-align: center; background: rgba(99, 102, 241, 0.05); border: 1px solid var(--border-highlight);">
-                <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">
-                    🚀 Khám Phá Thêm Chi Tiết Các Phần Trong Báo Cáo Presentation
-                </h4>
-                <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
-                    <button class="tab-btn" onclick="switchTab('tab2', document.querySelectorAll('.tab-btn')[1])" style="background: var(--bg-secondary); border: 1px solid var(--border-color); padding: 10px 18px; border-radius: 8px; color: var(--text-primary); cursor: pointer;">
-                        <i class="fa-solid fa-table-cells" style="color: var(--accent-blue);"></i> Tab 2: Giới Thiệu Dữ Liệu
-                    </button>
-                    <button class="tab-btn" onclick="switchTab('tab3', document.querySelectorAll('.tab-btn')[2])" style="background: var(--bg-secondary); border: 1px solid var(--border-color); padding: 10px 18px; border-radius: 8px; color: var(--text-primary); cursor: pointer;">
-                        <i class="fa-solid fa-magnifying-glass-chart" style="color: var(--accent-purple);"></i> Tab 3: Khám Phá Dữ Liệu (EDA 01-06)
-                    </button>
-                    <button class="tab-btn" onclick="switchTab('tab4', document.querySelectorAll('.tab-btn')[3])" style="background: var(--bg-secondary); border: 1px solid var(--border-color); padding: 10px 18px; border-radius: 8px; color: var(--text-primary); cursor: pointer;">
-                        <i class="fa-solid fa-diagram-project" style="color: var(--accent-amber);"></i> Tab 4: Quy Trình Thực Hiện (Cách Làm)
-                    </button>
-                    <button class="tab-btn" onclick="switchTab('tab5', document.querySelectorAll('.tab-btn')[4])" style="background: var(--bg-secondary); border: 1px solid var(--border-color); padding: 10px 18px; border-radius: 8px; color: var(--text-primary); cursor: pointer;">
-                        <i class="fa-solid fa-chart-line" style="color: var(--accent-emerald);"></i> Tab 5: Kết Quả Đầu Ra Thực Tế
+                <div style="text-align: center;">
+                    <button class="tab-btn" onclick="switchTab('tab4', document.querySelectorAll('.tab-btn')[3])" style="background: var(--accent-purple); color: white; border: none; padding: 12px 24px; border-radius: 8px; font-weight: 700; font-size: 0.95rem; cursor: pointer; box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);">
+                        <i class="fa-solid fa-arrow-right-to-bracket"></i> Đến Tab 4: Xem Thuyết Minh Kỹ Thuật Chi Tiết Các Phần
                     </button>
                 </div>
             </div>
@@ -392,51 +219,97 @@
         <section id="tab2" class="tab-panel">
             <div class="content-card">
                 <div class="card-header-title">
-                    <i class="fa-solid fa-folder-tree"></i> Tổng Quan 5 Tập Dữ Liệu Thô (Raw Datasets)
+                    <i class="fa-solid fa-folder-tree"></i> Phân Loại Luồng Dữ Liệu Đầu Vào (Core Operational vs Reference Streams)
                 </div>
-                <p style="color: var(--text-secondary); margin-bottom: 1rem;">
-                    Hệ thống tiếp nhận 5 luồng dữ liệu đầu vào dạng CSV tại thư mục <span class="code-tag">rawdata_test_ae/</span> đại diện cho các phân hệ vận hành chuỗi bán lẻ:
+                <p style="color: var(--text-secondary); margin-bottom: 1.25rem; font-size: 0.95rem; line-height: 1.7;">
+                    Hệ thống tiếp nhận dữ liệu đầu vào dạng CSV được phân tách thành <strong>3 Luồng Vận Hành Cốt Lõi</strong> và <strong>2 Luồng Tham Chiếu Bổ Trợ</strong> nhằm phục vụ trọn vẹn yêu cầu nghiệp vụ:
                 </p>
+
+                <!-- LƯỚI 2 CỘT PHÂN LOẠI LUỒNG DỮ LIỆU -->
+                <div class="grid-2" style="margin-bottom: 1.5rem;">
+                    <!-- LUỒNG CỐT LÕI -->
+                    <div style="background: rgba(99, 102, 241, 0.06); padding: 1.25rem; border-left: 4px solid var(--accent-purple); border-radius: 8px;">
+                        <h4 style="font-size: 1rem; font-weight: 700; color: var(--accent-purple); margin-bottom: 0.75rem;">
+                            🔹 3 Luồng Dữ Liệu Vận Hành Cốt Lõi (Core Operational Streams)
+                        </h4>
+                        <ul style="padding-left: 1.1rem; font-size: 0.88rem; line-height: 1.7; color: var(--text-primary);">
+                            <li style="margin-bottom: 0.4rem;">
+                                • <span class="code-tag">Transactions.csv</span>: Ghi nhận từng hóa đơn giao dịch POS chi tiết tại cửa hàng.
+                            </li>
+                            <li style="margin-bottom: 0.4rem;">
+                                • <span class="code-tag">Inventory_Logs.csv</span>: Nhật ký biến động xuất/nhập/tồn kho chốt daily.
+                            </li>
+                            <li>
+                                • <span class="code-tag">Store_Info.csv</span>: Master thông tin 15 cửa hàng và cấp quản lý vùng (RSM/AM).
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- LUỒNG BỔ TRỢ & MỤC ĐÍCH SỬ DỤNG -->
+                    <div style="background: rgba(16, 185, 129, 0.06); padding: 1.25rem; border-left: 4px solid var(--accent-emerald); border-radius: 8px;">
+                        <h4 style="font-size: 1rem; font-weight: 700; color: var(--accent-emerald); margin-bottom: 0.75rem;">
+                            💡 2 Luồng Dữ Liệu Master & Chỉ Tiêu Bổ Trợ (Reference Streams)
+                        </h4>
+                        <ul style="padding-left: 1.1rem; font-size: 0.88rem; line-height: 1.7; color: var(--text-primary);">
+                            <li style="margin-bottom: 0.5rem;">
+                                • <strong><span class="code-tag">Products.csv</span> (Đơn giá niêm yết Base_Price)</strong>:<br>
+                                &nbsp;&nbsp;&bull; <em>Dùng cho Phần 1</em>: Làm giá niêm yết chuẩn để thiết kế bảng <strong>SCD Type 2</strong> lưu vết lịch sử biến động giá khuyến mãi.<br>
+                                &nbsp;&nbsp;&bull; <em>Dùng cho Phần 2</em>: Làm mẫu số thực hiện quy tắc bù khuyết Null <span class="code-tag">Quantity = Unit_Price / Base_Price</span>.
+                            </li>
+                            <li>
+                                • <strong><span class="code-tag">Targets.csv</span> (Chỉ tiêu Target_Revenue)</strong>:<br>
+                                &nbsp;&nbsp;&bull; <em>Dùng cho Phần 3</em>: Làm chỉ tiêu chuẩn để lập trình công thức <strong>DAX Virtual Tables % Target Achievement</strong>.<br>
+                                &nbsp;&nbsp;&bull; <em>Dùng cho Phần 4</em>: Làm căn cứ xếp loại hiệu suất vận hành cửa hàng (<em>Super Star, On Track, Underperforming</em>).
+                            </li>
+                        </ul>
+                    </div>
+                </div>
 
                 <div class="table-responsive">
                     <table>
                         <thead>
                             <tr>
                                 <th>Tên File CSV</th>
-                                <th>Kích thước (Dòng x Cột)</th>
-                                <th>Nội dung Nghiệp vụ</th>
+                                <th>Phân Loại Luồng</th>
+                                <th>Kích thước</th>
+                                <th>Danh Sách Cột (Column Schema)</th>
                                 <th>Khóa Chính / Liên kết</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td><span class="code-tag">Transactions.csv</span></td>
+                                <td><span class="tag-purple">Vận hành Cốt lõi</span></td>
                                 <td>1,815 dòng x 6 cột</td>
-                                <td>Giao dịch bán lẻ chi tiết từ máy POS tại các cửa hàng.</td>
+                                <td><span class="code-tag">Transaction_ID</span>, <span class="code-tag">Date</span>, <span class="code-tag">Product_ID</span>, <span class="code-tag">Store_ID</span>, <span class="code-tag">Quantity</span>, <span class="code-tag">Unit_Price</span></td>
                                 <td><span class="code-tag">Transaction_ID</span></td>
                             </tr>
                             <tr>
                                 <td><span class="code-tag">Inventory_Logs.csv</span></td>
+                                <td><span class="tag-purple">Vận hành Cốt lõi</span></td>
                                 <td>1,350 dòng x 7 cột</td>
-                                <td>Lịch sử xuất/nhập/tồn kho daily (Tồn đầu, Nhập, Xuất, Tồn cuối).</td>
+                                <td><span class="code-tag">Log_Date</span>, <span class="code-tag">Store_ID</span>, <span class="code-tag">Product_ID</span>, <span class="code-tag">Beginning_Inventory</span>, <span class="code-tag">Received</span>, <span class="code-tag">Sold</span>, <span class="code-tag">Ending_Inventory</span></td>
                                 <td><span class="code-tag">Log_Date, Store_ID, Product_ID</span></td>
                             </tr>
                             <tr>
                                 <td><span class="code-tag">Store_Info.csv</span></td>
-                                <td>15 dòng mẫu x 6 cột</td>
-                                <td>Master thông tin cửa hàng, Tên, Khu vực, RSM, AM, Loại cửa hàng.</td>
+                                <td><span class="tag-purple">Vận hành Cốt lõi</span></td>
+                                <td>15 dòng x 6 cột</td>
+                                <td><span class="code-tag">Store_ID</span>, <span class="code-tag">Store_Name</span>, <span class="code-tag">Region</span>, <span class="code-tag">RSM</span>, <span class="code-tag">AM</span>, <span class="code-tag">Store_Type</span></td>
                                 <td><span class="code-tag">Store_ID</span></td>
                             </tr>
                             <tr>
                                 <td><span class="code-tag">Products.csv</span></td>
-                                <td>10 dòng mẫu x 5 cột</td>
-                                <td>Master sản phẩm, Tên, Thương hiệu, Danh mục, Giá niêm yết Base Price.</td>
+                                <td><span class="tag-emerald">Tham chiếu Bổ trợ</span></td>
+                                <td>10 dòng x 5 cột</td>
+                                <td><span class="code-tag">Product_ID</span>, <span class="code-tag">Product_Name</span>, <span class="code-tag">Brand</span>, <span class="code-tag">Category</span>, <span class="code-tag">Base_Price</span></td>
                                 <td><span class="code-tag">Product_ID</span></td>
                             </tr>
                             <tr>
                                 <td><span class="code-tag">Targets.csv</span></td>
-                                <td>45 dòng mẫu x 3 cột</td>
-                                <td>Chỉ tiêu doanh thu Target hàng tháng cho từng cửa hàng.</td>
+                                <td><span class="tag-emerald">Tham chiếu Bổ trợ</span></td>
+                                <td>45 dòng x 3 cột</td>
+                                <td><span class="code-tag">Store_ID</span>, <span class="code-tag">Month_Year</span>, <span class="code-tag">Target_Revenue</span></td>
                                 <td><span class="code-tag">Store_ID, Month_Year</span></td>
                             </tr>
                         </tbody>
@@ -446,30 +319,84 @@
 
             <div class="content-card">
                 <div class="card-header-title">
-                    <i class="fa-solid fa-key"></i> Từ Điển Dữ Liệu Các Trường Thuộc Tính Quan Trọng
+                    <i class="fa-solid fa-key"></i> Từ Điển Dữ Liệu Thuộc Tính & Các Chỉ Số Tính Toán (Data Dictionary & Derived Metrics)
                 </div>
-                <div class="grid-2">
-                    <div class="feature-box">
-                        <div class="feature-title">Phân hệ Giao dịch & Kho</div>
-                        <ul style="list-style: none; color: var(--text-secondary); font-size: 0.9rem; line-height: 1.8;">
-                            <li>• <span class="code-tag">Transaction_ID</span>: Mã định danh duy nhất của hóa đơn bán lẻ.</li>
-                            <li>• <span class="code-tag">Quantity</span>: Số lượng sản phẩm bán ra trên hóa đơn.</li>
-                            <li>• <span class="code-tag">Unit_Price</span>: Đơn giá bán thực tế của sản phẩm (VND).</li>
-                            <li>• <span class="code-tag">Beginning_Inventory</span>: Số lượng tồn kho đầu ngày.</li>
-                            <li>• <span class="code-tag">Received</span>: Số lượng hàng nhập kho trong ngày.</li>
-                            <li>• <span class="code-tag">Sold</span>: Tổng số lượng hàng xuất bán trong ngày.</li>
-                            <li>• <span class="code-tag">Ending_Inventory</span>: Tồn kho chốt cuối ngày.</li>
+                <div class="grid-3">
+                    <!-- PHÂN HỆ GIAO DỊCH & KHO THÔ -->
+                    <div class="feature-box" style="border-top: 3px solid var(--accent-purple);">
+                        <div class="feature-title" style="color: var(--accent-purple); font-size: 0.95rem; font-weight: 700; margin-bottom: 0.85rem;">
+                            <i class="fa-solid fa-receipt"></i> Phân Hệ Giao Dịch & Kho (Raw Data)
+                        </div>
+                        <ul style="list-style: none; color: var(--text-secondary); font-size: 0.86rem; line-height: 1.8; padding: 0; margin: 0;">
+                            <li style="margin-bottom: 0.4rem;">• <span class="code-tag">Transaction_ID</span>: Mã định danh duy nhất của hóa đơn bán lẻ POS.</li>
+                            <li style="margin-bottom: 0.4rem;">• <span class="code-tag">Quantity</span>: Số lượng sản phẩm bán ra trên từng dòng hóa đơn.</li>
+                            <li style="margin-bottom: 0.4rem;">• <span class="code-tag">Unit_Price</span>: Đơn giá bán thực tế của sản phẩm tại thời điểm giao dịch (VNĐ).</li>
+                            <li style="margin-bottom: 0.4rem;">• <span class="code-tag">Beginning_Inventory</span>: Số lượng tồn kho chốt đầu ngày tại điểm bán.</li>
+                            <li style="margin-bottom: 0.4rem;">• <span class="code-tag">Received</span>: Số lượng hàng nhập kho trong ngày.</li>
+                            <li style="margin-bottom: 0.4rem;">• <span class="code-tag">Sold</span>: Tổng số lượng sản phẩm xuất bán trong ngày.</li>
+                            <li>• <span class="code-tag">Ending_Inventory</span>: Số lượng tồn kho chốt cuối ngày.</li>
                         </ul>
                     </div>
-                    <div class="feature-box">
-                        <div class="feature-title">Phân hệ Cửa hàng & Sản phẩm Master</div>
-                        <ul style="list-style: none; color: var(--text-secondary); font-size: 0.9rem; line-height: 1.8;">
-                            <li>• <span class="code-tag">Store_Type</span>: Loại cửa hàng (Flagship Store, Key Store, Standard, Micro Store).</li>
-                            <li>• <span class="code-tag">Region</span>: Phân vùng địa lý (Miền Bắc, Miền Nam, Miền Trung).</li>
-                            <li>• <span class="code-tag">RSM / AM</span>: Giám đốc vùng (Regional Sales Mgr) & Quản lý khu vực (Area Mgr).</li>
-                            <li>• <span class="code-tag">Base_Price</span>: Giá bán niêm yết chuẩn của nhà sản xuất.</li>
-                            <li>• <span class="code-tag">Target_Revenue</span>: Chỉ tiêu doanh thu đăng ký hàng tháng (VND).</li>
+
+                    <!-- PHÂN HỆ MASTER & TARGET -->
+                    <div class="feature-box" style="border-top: 3px solid var(--accent-emerald);">
+                        <div class="feature-title" style="color: var(--accent-emerald); font-size: 0.95rem; font-weight: 700; margin-bottom: 0.85rem;">
+                            <i class="fa-solid fa-store"></i> Phân Hệ Master & Chỉ Tiêu Target
+                        </div>
+                        <ul style="list-style: none; color: var(--text-secondary); font-size: 0.86rem; line-height: 1.8; padding: 0; margin: 0;">
+                            <li style="margin-bottom: 0.5rem;">• <span class="code-tag">Store_Type</span>: Mã loại cửa hàng (A: Flagship, B: Key, C: Standard, D: Micro Store).</li>
+                            <li style="margin-bottom: 0.5rem;">• <span class="code-tag">Region</span>: Phân vùng địa lý quản lý (Miền Nam - TP.HCM / Bình Dương).</li>
+                            <li style="margin-bottom: 0.5rem;">• <span class="code-tag">RSM / AM</span>: Giám đốc kinh doanh vùng (RSM) & Quản lý khu vực (AM).</li>
+                            <li style="margin-bottom: 0.5rem;">• <span class="code-tag">Base_Price</span>: Giá niêm yết chuẩn nhà sản xuất (Phục vụ SCD Type 2 & Impute Null).</li>
+                            <li>• <span class="code-tag">Target_Revenue</span>: Chỉ tiêu doanh thu kế hoạch đăng ký theo tháng (VNĐ).</li>
                         </ul>
+                    </div>
+
+                    <!-- PHÂN HỆ CHỈ SỐ TÍNH TOÁN (DERIVED METRICS) -->
+                    <div class="feature-box" style="border-top: 3px solid var(--accent-blue);">
+                        <div class="feature-title" style="color: var(--accent-blue); font-size: 0.95rem; font-weight: 700; margin-bottom: 0.85rem;">
+                            <i class="fa-solid fa-calculator"></i> Các Chỉ Số Tính Toán (Derived Metrics)
+                        </div>
+                        <div style="display: flex; flex-direction: column; gap: 0.65rem;">
+                            <!-- METRIC 1: DRR -->
+                            <div style="background: rgba(0,0,0,0.3); padding: 0.65rem 0.75rem; border-radius: 6px; border: 1px solid rgba(56, 189, 248, 0.2);">
+                                <div style="font-size: 0.86rem; font-weight: 700; color: #38bdf8;">
+                                    📌 <span class="code-tag">Daily_Run_Rate (DRR)</span>
+                                </div>
+                                <div style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.2rem; line-height: 1.4;">
+                                    Tốc độ bán hàng trung bình ngày per Store & Product.
+                                </div>
+                                <div style="font-family: monospace; font-size: 0.76rem; color: #7dd3fc; background: rgba(56, 189, 248, 0.12); padding: 0.25rem 0.5rem; border-radius: 4px; margin-top: 0.3rem; display: inline-block;">
+                                    📐 Total_Sales_Qty / Active_Days
+                                </div>
+                            </div>
+
+                            <!-- METRIC 2: INVENTORY COVER -->
+                            <div style="background: rgba(0,0,0,0.3); padding: 0.65rem 0.75rem; border-radius: 6px; border: 1px solid rgba(16, 185, 129, 0.2);">
+                                <div style="font-size: 0.86rem; font-weight: 700; color: #34d399;">
+                                    📌 <span class="code-tag">Inventory_Cover_Ratio</span>
+                                </div>
+                                <div style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.2rem; line-height: 1.4;">
+                                    Số ngày tồn kho trang trải (Overstock &ge;30d, Stockout &le;2d).
+                                </div>
+                                <div style="font-family: monospace; font-size: 0.76rem; color: #6ee7b7; background: rgba(16, 185, 129, 0.12); padding: 0.25rem 0.5rem; border-radius: 4px; margin-top: 0.3rem; display: inline-block;">
+                                    📐 Ending_Inventory / DRR
+                                </div>
+                            </div>
+
+                            <!-- METRIC 3: ACHIEVEMENT PCT -->
+                            <div style="background: rgba(0,0,0,0.3); padding: 0.65rem 0.75rem; border-radius: 6px; border: 1px solid rgba(168, 85, 247, 0.2);">
+                                <div style="font-size: 0.86rem; font-weight: 700; color: #c084fc;">
+                                    📌 <span class="code-tag">Achievement_Pct</span>
+                                </div>
+                                <div style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.2rem; line-height: 1.4;">
+                                    Tỷ lệ % hoàn thành mục tiêu doanh thu kế hoạch.
+                                </div>
+                                <div style="font-family: monospace; font-size: 0.76rem; color: #e9d5ff; background: rgba(168, 85, 247, 0.12); padding: 0.25rem 0.5rem; border-radius: 4px; margin-top: 0.3rem; display: inline-block;">
+                                    📐 Actual_Revenue / Target_Revenue
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -919,89 +846,18 @@
                 </div>
             </div>
 
-            <div class="content-card">
-                <div class="card-header-title">
-                    <i class="fa-solid fa-chart-column"></i> Trực Quan Hóa Phát Hiện EDA Chính
-                </div>
-
-                <div class="grid-2">
-                    <div class="feature-box">
-                        <div class="feature-title">Top Cửa Hàng Dẫn Đầu Doanh Số (Triệu VND)</div>
-                        <div class="chart-bar-container">
-                            <div class="chart-bar-row">
-                                <div class="chart-bar-label">Cửa hàng ST001</div>
-                                <div class="chart-bar-track">
-                                    <div class="chart-bar-fill" style="width: 100%;"></div>
-                                    <span class="chart-bar-val">4,420 Triệu</span>
-                                </div>
-                            </div>
-                            <div class="chart-bar-row">
-                                <div class="chart-bar-label">Cửa hàng ST014</div>
-                                <div class="chart-bar-track">
-                                    <div class="chart-bar-fill" style="width: 88%;"></div>
-                                    <span class="chart-bar-val">3,890 Triệu</span>
-                                </div>
-                            </div>
-                            <div class="chart-bar-row">
-                                <div class="chart-bar-label">Cửa hàng ST005</div>
-                                <div class="chart-bar-track">
-                                    <div class="chart-bar-fill" style="width: 76%;"></div>
-                                    <span class="chart-bar-val">3,350 Triệu</span>
-                                </div>
-                            </div>
-                            <div class="chart-bar-row">
-                                <div class="chart-bar-label">Cửa hàng ST010</div>
-                                <div class="chart-bar-track">
-                                    <div class="chart-bar-fill" style="width: 65%;"></div>
-                                    <span class="chart-bar-val">2,870 Triệu</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="feature-box">
-                        <div class="feature-title">Phân Bổ Trạng Thái Cảnh Báo Tồn Kho (Daily Inventory Logs)</div>
-                        <div class="chart-bar-container">
-                            <div class="chart-bar-row">
-                                <div class="chart-bar-label">🔵 OVERSTOCK (≥30 ngày)</div>
-                                <div class="chart-bar-track">
-                                    <div class="chart-bar-fill" style="width: 98%; background: var(--accent-blue);"></div>
-                                    <span class="chart-bar-val">1,337 Logs (99.0%)</span>
-                                </div>
-                            </div>
-                            <div class="chart-bar-row">
-                                <div class="chart-bar-label">🟢 OPTIMAL (5-30 ngày)</div>
-                                <div class="chart-bar-track">
-                                    <div class="chart-bar-fill" style="width: 15%; background: var(--accent-emerald);"></div>
-                                    <span class="chart-bar-val">13 Logs (1.0%)</span>
-                                </div>
-                            </div>
-                            <div class="chart-bar-row">
-                                <div class="chart-bar-label">🔴 CRITICAL STOCKOUT</div>
-                                <div class="chart-bar-track">
-                                    <div class="chart-bar-fill" style="width: 0%; background: var(--accent-rose);"></div>
-                                    <span class="chart-bar-val">0 Logs (0%)</span>
-                                </div>
-                            </div>
-                        </div>
-                        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 1rem;">
-                            📌 <strong>Insight Tồn kho</strong>: 99% nhật ký tồn kho nằm ở trạng thái Overstock do số lượng tồn đọng cao so với chỉ số bán hàng ngày (Daily Run Rate), đòi hỏi chiến dịch xả kho tối ưu vốn lưu động.
-                        </p>
-                    </div>
-                </div>
-            </div>
         </section>
 
         <!-- TAB 4: QUY TRÌNH THỰC HIỆN & KIẾN TRÚC KỸ THUẬT (DATA ENGINEERING & ARCHITECTURE) -->
         <section id="tab4" class="tab-panel">
             
-            <!-- 1. SƠ ĐỒ ERD MÔ HÌNH HÓA QUAN HỆ DỮ LIỆU DATA WAREHOUSE -->
+            <!-- PHẦN 1: THIẾT KẾ KHO DỮ LIỆU & MÔ HÌNH HÓA STAR SCHEMA (PHẦN 1) -->
             <div class="content-card">
                 <div class="card-header-title">
-                    <i class="fa-solid fa-diagram-project"></i> 1. Mô Hình Kiến Trúc Data Warehouse Star Schema (ERD & SCD Type 2)
+                    <i class="fa-solid fa-diagram-project"></i> 1. Thiết Kế Kho Dữ Liệu & Mô Hình Hóa Star Schema (Phần 1)
                 </div>
                 <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
-                    Sơ đồ quan hệ thực thể (ERD) thể hiện cấu trúc Star Schema 3 tầng (<span class="code-tag">Staging</span> <i class="fa-solid fa-arrow-right" style="font-size: 0.8rem; margin: 0 4px; color: var(--accent-purple);"></i> <span class="code-tag">Intermediate</span> <i class="fa-solid fa-arrow-right" style="font-size: 0.8rem; margin: 0 4px; color: var(--accent-purple);"></i> <span class="code-tag">Marts</span>) chuẩn hóa trên BigQuery Data Warehouse:
+                    Sơ đồ quan hệ thực thể (ERD) thể hiện cấu trúc Star Schema chuẩn hóa trên Data Warehouse BigQuery:
                 </p>
                 
                 <!-- ẢNH ERD CHÍNH -->
@@ -1018,47 +874,53 @@
                         </h4>
                         <ul style="padding-left: 1.1rem; font-size: 0.9rem; line-height: 1.8; color: var(--text-primary);">
                             <li style="margin-bottom: 0.5rem;">
-                                🔹 <strong><span class="code-tag">dim_store</span> <i class="fa-solid fa-arrow-right" style="color: var(--accent-blue); font-size: 0.8rem; margin: 0 4px;"></i> <span class="code-tag">fact_sales</span> (1-N)</strong>: 170+ cửa hàng phát sinh nhiều đơn hàng giao dịch POS.
+                                🔹 <strong><span class="code-tag">dim_store</span> &rarr; <span class="code-tag">fact_sales</span> (1-N)</strong>: Cửa hàng phát sinh các đơn hàng giao dịch POS.
                             </li>
                             <li style="margin-bottom: 0.5rem;">
-                                🔹 <strong><span class="code-tag">dim_store</span> <i class="fa-solid fa-arrow-right" style="color: var(--accent-blue); font-size: 0.8rem; margin: 0 4px;"></i> <span class="code-tag">fact_inventory_daily</span> (1-N)</strong>: Cửa hàng theo dõi xuất/nhập/tồn kho daily.
+                                🔹 <strong><span class="code-tag">dim_store</span> &rarr; <span class="code-tag">fact_inventory_daily</span> (1-N)</strong>: Cửa hàng theo dõi nhập/xuất/tồn kho hằng ngày.
                             </li>
                             <li style="margin-bottom: 0.5rem;">
-                                🔹 <strong><span class="code-tag">dim_product</span> <i class="fa-solid fa-arrow-right" style="color: var(--accent-purple); font-size: 0.8rem; margin: 0 4px;"></i> <span class="code-tag">fact_sales</span> (1-N)</strong>: Sản phẩm công nghệ được bán ra trên các hóa đơn.
+                                🔹 <strong><span class="code-tag">dim_product</span> &rarr; <span class="code-tag">fact_sales</span> (1-N)</strong>: Sản phẩm công nghệ bán ra trên hóa đơn.
                             </li>
                             <li>
-                                🔹 <strong><span class="code-tag">dim_product</span> <i class="fa-solid fa-arrow-right" style="color: var(--accent-purple); font-size: 0.8rem; margin: 0 4px;"></i> <span class="code-tag">fact_inventory_daily</span> (1-N)</strong>: Sản phẩm theo dõi tồn kho hằng ngày.
+                                🔹 <strong><span class="code-tag">dim_product</span> &rarr; <span class="code-tag">fact_inventory_daily</span> (1-N)</strong>: Sản phẩm theo dõi tồn kho daily.
                             </li>
                         </ul>
                     </div>
 
-                    <!-- CỘT 2: LẬP LUẬN KỸ THUẬT SCD TYPE 2 -->
+                    <!-- CỘT 2: CÂU HỎI TƯ DUY & LẬP LUẬN KỸ THUẬT SCD TYPE 2 -->
                     <div style="background: rgba(16, 185, 129, 0.06); padding: 1.25rem; border-left: 4px solid var(--accent-emerald); border-radius: 8px;">
                         <h4 style="font-size: 1rem; font-weight: 700; color: var(--accent-emerald); margin-bottom: 0.75rem;">
-                            <i class="fa-solid fa-clock-rotate-left"></i> Lập Luận Kỹ Thuật Slowly Changing Dimension (SCD Type 2)
+                            <i class="fa-solid fa-brain"></i> Quản Trị Lịch Sử Giá Sản Phẩm (Slowly Changing Dimension - SCD Type 2)
                         </h4>
-                        <ul style="padding-left: 1.1rem; font-size: 0.9rem; line-height: 1.8; color: var(--text-primary);">
-                            <li style="margin-bottom: 0.5rem;">
-                                <strong>Lý do áp dụng SCD Type 2</strong>: Đơn giá niêm yết thiết bị công nghệ biến động liên tục. SCD Type 1 (ghi đè) sẽ làm tính sai doanh thu lịch sử quá khứ.
+                        <p style="font-size: 0.88rem; line-height: 1.7; color: var(--text-primary); margin-bottom: 0.75rem; background: rgba(0,0,0,0.3); padding: 0.75rem; border-radius: 6px;">
+                            💬 <strong>Bài toán nghiệp vụ</strong>: <em>"Khi giá bán của một mẫu điện thoại thay đổi liên tục theo các chương trình khuyến mãi, giải pháp Slowly Changing Dimension (SCD) loại mấy được lựa chọn cho bảng Dimension Sản phẩm và tại sao?"</em>
+                        </p>
+                        <ul style="padding-left: 1.1rem; font-size: 0.88rem; line-height: 1.7; color: var(--text-primary);">
+                            <li style="margin-bottom: 0.4rem;">
+                                🎯 <strong>Trả lời: Áp dụng SCD Type 2 (Slowly Changing Dimension Type 2)</strong>.
                             </li>
-                            <li style="margin-bottom: 0.5rem;">
-                                <strong>Hash Surrogate Key</strong>: Khởi tạo khóa thay thế duy nhất bằng hàm BigQuery <span class="code-tag">FARM_FINGERPRINT(CONCAT(product_id, '_', base_price))</span>.
+                            <li style="margin-bottom: 0.4rem;">
+                                🔹 <strong>Bảo toàn tính chính xác lịch sử (Historical Integrity)</strong>: Dùng SCD Type 1 (ghi đè) sẽ làm sai toàn bộ doanh thu quá khứ của các đơn hàng bán với giá gốc.
+                            </li>
+                            <li style="margin-bottom: 0.4rem;">
+                                🔹 <strong>Lưu vết biến động theo thời gian</strong>: Thêm bản ghi mới cho từng mức giá khuyến mãi kèm 3 trường <span class="code-tag">valid_from</span>, <span class="code-tag">valid_to</span>, và <span class="code-tag">is_current</span>.
                             </li>
                             <li>
-                                <strong>Lưu vết lịch sử</strong>: Bổ sung 3 trường kiểm soát thời gian <span class="code-tag">valid_from</span>, <span class="code-tag">valid_to</span>, và cờ hiệu lực hiện tại <span class="code-tag">is_current</span>.
+                                🔹 <strong>Hash Key Surrogate</strong>: Tạo khóa liên kết duy nhất <span class="code-tag">FARM_FINGERPRINT(CONCAT(product_id, '_', base_price))</span> giúp bảng Fact map đúng giá tại thời điểm giao dịch.
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
 
-            <!-- 2. QUY TRÌNH KỸ THUẬT PYTHON ETL DATA PIPELINE -->
+            <!-- PHẦN 2: XỬ LÝ DỮ LIỆU & XÂY DỰNG PIPELINE VỚI PYTHON (PHẦN 2) -->
             <div class="content-card">
                 <div class="card-header-title">
-                    <i class="fa-solid fa-code-branch"></i> 2. Quy Trình Kỹ Thuật Python Data Pipeline ETL (<span class="code-tag">src/pipeline/</span>)
+                    <i class="fa-solid fa-code-branch"></i> 2. Xử Lý Dữ Liệu & Xây Dựng ETL Pipeline Với Python (Phần 2)
                 </div>
                 <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
-                    Luồng xử lý dữ liệu tự động hóa theo mô hình OOP phân tách trách nhiệm (Separation of Concerns):
+                    Quy trình xử lý dữ liệu tự động hóa theo kiến trúc hướng đối tượng (OOP) phân tách trách nhiệm (Separation of Concerns):
                 </p>
 
                 <div class="pipeline-flow">
@@ -1066,12 +928,12 @@
                     <div class="pipeline-step">
                         <div class="pipeline-step-num">1</div>
                         <div class="pipeline-step-content">
-                            <div class="pipeline-step-title">Tầng làm sạch dữ liệu thô (Data Cleaner - <span class="code-tag">cleaner.py</span>)</div>
+                            <div class="pipeline-step-title">Tầng Làm Sạch Dữ Liệu Thô (Data Cleaner - <span class="code-tag">cleaner.py</span>)</div>
                             <div class="pipeline-step-tech">Python Pandas • Mixed Datetime Parsing • POS Deduplication</div>
                             <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.7; margin-top: 0.4rem;">
-                                • Khử 15 bản ghi trùng lặp <span class="code-tag">Transaction_ID</span> do sự cố resend gói tin POS.<br>
-                                • Bổ khuyết 19 bản ghi Null bằng tỷ lệ <span class="code-tag">Quantity = Unit_Price / Base_Price = 1.0</span> (giữ nguyên 380+ triệu VND doanh thu).<br>
-                                • Parse ngày hỗn hợp với <span class="code-tag">dayfirst=True, format='mixed'</span> và khôi phục tồn cuối <span class="code-tag">Ending_Inventory = Beginning + Received - Sold</span>.
+                                • Khử 15 bản ghi trùng lặp <span class="code-tag">Transaction_ID</span> do sự cố resend gói tin máy POS.<br>
+                                • Bổ khuyết 19 bản ghi Null bằng quy tắc nghiệp vụ <span class="code-tag">Quantity = Unit_Price / Base_Price = 1.0</span> (bảo toàn 380+ triệu VNĐ doanh thu).<br>
+                                • Parse ngày hỗn hợp với thiết lập <span class="code-tag">dayfirst=True, format='mixed'</span> và khôi phục tồn cuối <span class="code-tag">Ending_Inventory = Beginning + Received - Sold</span>.
                             </p>
                         </div>
                     </div>
@@ -1080,12 +942,12 @@
                     <div class="pipeline-step">
                         <div class="pipeline-step-num">2</div>
                         <div class="pipeline-step-content">
-                            <div class="pipeline-step-title">Tầng tính toán chỉ số & Biến đổi (Metrics Engine - <span class="code-tag">metrics_calculator.py</span>)</div>
+                            <div class="pipeline-step-title">Tầng Tính Toán Chỉ Số & Biến Đổi (Metrics Engine - <span class="code-tag">metrics_calculator.py</span>)</div>
                             <div class="pipeline-step-tech">Calculated Metrics Engine • DRR & Inventory Cover Ratio</div>
                             <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.7; margin-top: 0.4rem;">
                                 • Tính tốc độ bán hàng trung bình ngày: <span class="code-tag">Daily_Run_Rate (DRR) = Total_Sales_Qty / Active_Days</span>.<br>
                                 • Tính số ngày trang trải tồn kho: <span class="code-tag">Inventory_to_Sales_Ratio = Ending_Inventory / DRR</span>.<br>
-                                • Gán nhãn cảnh báo kho: Overstock (≥30 ngày), Stockout (≤2 ngày), Low Stock (≤5 ngày), Optimal.
+                                • Gán nhãn cảnh báo kho tự động: Overstock (&ge;30 ngày), Stockout (&le;2 ngày), Low Stock (&le;5 ngày), Optimal.
                             </p>
                         </div>
                     </div>
@@ -1094,147 +956,1197 @@
                     <div class="pipeline-step">
                         <div class="pipeline-step-num">3</div>
                         <div class="pipeline-step-content">
-                            <div class="pipeline-step-title">Tầng điều phối Pipeline & Nạp DWH (Orchestration - <span class="code-tag">runner.py</span>)</div>
+                            <div class="pipeline-step-title">Tầng Điều Phối Pipeline & Nạp DWH (Orchestration - <span class="code-tag">runner.py</span>)</div>
                             <div class="pipeline-step-tech">Config-Driven Architecture • Automated Pytest • BigQuery Load</div>
                             <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.7; margin-top: 0.4rem;">
-                                • Điều phối toàn bộ luồng ETL từ cấu hình động <span class="code-tag">configs/pipeline_config.yaml</span>.<br>
+                                • Điều phối toàn bộ luồng ETL từ tệp cấu hình động <span class="code-tag">configs/pipeline_config.yaml</span>.<br>
                                 • Xuất các tệp dữ liệu sạch chuẩn hóa ra thư mục <span class="code-tag">data/processed/*.csv</span> sẵn sàng nạp BigQuery.<br>
-                                • Đạt <strong>100% Pass Automated Unit Test Suite (5/5 tests)</strong> trong <span class="code-tag">run_tests.py</span>.
+                                • Vượt qua <strong>100% Automated Unit Test Suite (5/5 tests)</strong> trong <span class="code-tag">run_tests.py</span>.
                             </p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- 3. PHẦN 4: TƯ DUY HỆ THỐNG & QUẢN TRỊ CODEBASE (TÌNH HUỐNG 1) -->
+            <!-- PHẦN 3: TRỰC QUAN HÓA & PHÂN TÍCH BẰNG POWER BI (PHẦN 3) -->
             <div class="content-card">
                 <div class="card-header-title">
-                    <i class="fa-solid fa-triangle-exclamation"></i> 3. Quản Trị Hệ Thống & Tối Ưu BigQuery (Phần 4 - Tình Huống 1)
+                    <i class="fa-solid fa-chart-column"></i> 3. Trực Quan Hóa & Phân Tích Bằng Power BI (Phần 3)
                 </div>
                 <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
-                    <strong>Tình huống bài toán</strong>: Pipeline dữ liệu tự động hằng ngày trên BigQuery đột ngột tăng vọt chi phí (cost) gấp 3 lần và chạy rất chậm, dù lượng dữ liệu đầu vào không có sự đột biến.
+                    Giao diện Dashboard vận hành trên Power BI Desktop và giải pháp DAX Virtual Tables đáp ứng trọn vẹn yêu cầu đề bài:
                 </p>
 
-                <div class="grid-2">
-                    <!-- BƯỚC ĐIỀU TRA -->
-                    <div style="background: rgba(239, 68, 68, 0.05); padding: 1.25rem; border-left: 4px solid var(--accent-rose); border-radius: 8px;">
-                        <h4 style="font-size: 1rem; font-weight: 700; color: var(--accent-rose); margin-bottom: 0.75rem;">
-                            🔍 5 Bước Điều Tra Nguyên Nhân Root Cause (Troubleshooting)
-                        </h4>
-                        <ul style="padding-left: 1.1rem; font-size: 0.9rem; line-height: 1.8; color: var(--text-primary);">
-                            <li style="margin-bottom: 0.5rem;">
-                                <strong>1. Log & Metrics</strong>: Truy vấn <span class="code-tag">INFORMATION_SCHEMA.JOBS_BY_PROJECT</span> so sánh <span class="code-tag">total_bytes_billed</span>, <span class="code-tag">total_bytes_processed</span>, và <span class="code-tag">slot_ms</span> với lịch sử.
-                            </li>
-                            <li style="margin-bottom: 0.5rem;">
-                                <strong>2. Execution Graph</strong>: Kiểm tra Query Execution Plan trên BigQuery UI phát hiện nghẽn do <i>Data Skew</i>, <i>Shuffle Spills</i>, hoặc <i>Cartesian JOIN</i>.
-                            </li>
-                            <li style="margin-bottom: 0.5rem;">
-                                <strong>3. Git Commit Audit</strong>: Rà soát commit mới nhất trong Pipeline (kiểm tra xem có ai xóa điều kiện <span class="code-tag">WHERE _PARTITIONDATE</span> hoặc dùng <span class="code-tag">SELECT *</span>).
-                            </li>
-                            <li style="margin-bottom: 0.5rem;">
-                                <strong>4. Partition & Cluster Pruning</strong>: Kiểm tra xem truy vấn có bị mất chỉ mục lọc do bọc hàm cột Partition (vd: <span class="code-tag">WHERE DATE(timestamp)</span>).
-                            </li>
-                            <li>
-                                <strong>5. Slot Contention</strong>: Kiểm tra các Job chạy song song chiếm dụng tài nguyên BigQuery Slots.
-                            </li>
-                        </ul>
-                    </div>
+                <!-- HÌNH ẢNH DASHBOARD THỰC TẾ -->
+                <div style="text-align: center; margin-bottom: 2rem;">
+                    <img src="assets/images/power bi.png" alt="Power BI Operational Dashboard CellphoneS" style="max-width: 100%; height: auto; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.2); box-shadow: 0 10px 40px rgba(0,0,0,0.5);">
+                </div>
 
-                    <!-- KỸ THUẬT TỐI ƯU SQL -->
-                    <div style="background: rgba(16, 185, 129, 0.05); padding: 1.25rem; border-left: 4px solid var(--accent-emerald); border-radius: 8px;">
-                        <h4 style="font-size: 1rem; font-weight: 700; color: var(--accent-emerald); margin-bottom: 0.75rem;">
-                            🛠️ 5 Kỹ Thuật Tối Ưu SQL & Hệ Thống Áp Dụng (Optimization)
-                        </h4>
-                        <ul style="padding-left: 1.1rem; font-size: 0.9rem; line-height: 1.8; color: var(--text-primary);">
-                            <li style="margin-bottom: 0.5rem;">
-                                <strong>1. Partition & Cluster Filter</strong>: <span class="code-tag">PARTITION BY DATE(date)</span>, <span class="code-tag">CLUSTER BY store_id, product_id</span> và bật <span class="code-tag">require_partition_filter = TRUE</span>.
-                            </li>
-                            <li style="margin-bottom: 0.5rem;">
-                                <strong>2. Columnar Selection</strong>: Bỏ <span class="code-tag">SELECT *</span>, chỉ chỉ định danh sách cột cần thiết giúp giảm 60-80% dung lượng byte bị quét trên kiến trúc Capacitor.
-                            </li>
-                            <li style="margin-bottom: 0.5rem;">
-                                <strong>3. Khử JOIN Explosion</strong>: Sửa câu lệnh JOIN thiếu điều kiện hoặc JOIN chưa deduplicate. Sử dụng Surrogate Key <span class="code-tag">FARM_FINGERPRINT</span>.
-                            </li>
-                            <li style="margin-bottom: 0.5rem;">
-                                <strong>4. Incremental Load (`MERGE`)</strong>: Chuyển từ <span class="code-tag">CREATE OR REPLACE TABLE</span> sang câu lệnh <span class="code-tag">MERGE</span> chỉ xử lý phần dữ liệu Delta trong ngày.
-                            </li>
-                            <li>
-                                <strong>5. Materialized Views & Temp Tables</strong>: Dùng <span class="code-tag">CREATE TEMP TABLE</span> hoặc <span class="code-tag">MATERIALIZED VIEW</span> tái sử dụng kết quả gom nhóm lặp lại.
-                            </li>
-                        </ul>
+                <!-- PHÂN TÍCH CHI TIẾT 6 VISUAL -->
+                <div style="background: rgba(15, 23, 42, 0.7); padding: 1.5rem; border-radius: 10px; border: 1px solid var(--border-color); margin-bottom: 2rem;">
+                    <h4 style="font-size: 1.1rem; font-weight: 700; color: var(--accent-blue); margin-bottom: 1rem;">
+                        <i class="fa-solid fa-magnifying-glass-chart"></i> Phân Tích Chẩn Đoán Chi Tiết 6 Thành Phần Trực Quan Trên Dashboard
+                    </h4>
+
+                    <div class="grid-2" style="margin-bottom: 1rem;">
+                        <div style="background: rgba(255, 255, 255, 0.02); padding: 1rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08);">
+                            <strong style="color: var(--accent-emerald); font-size: 0.95rem;">1. Bộ 3 Thẻ Chỉ Số KPI Executive (Góc Phải Dưới)</strong>
+                            <ul style="padding-left: 1.1rem; font-size: 0.88rem; color: var(--text-secondary); margin-top: 0.4rem; line-height: 1.6;">
+                                • <span class="code-tag">💰 TỔNG DOANH THU</span>: <strong>56.6 Tỷ VNĐ</strong> - Tổng doanh thu giao dịch Quý 3/2026.<br>
+                                • <span class="code-tag">🎯 % ĐẠT TARGET TB</span>: <strong>99.29%</strong> - Tỷ lệ hoàn thành chỉ tiêu trung bình toàn chuỗi.<br>
+                                • <span class="code-tag">📦 SỐ NGÀY TỒN KHO TB</span>: <strong>112.30 Ngày</strong> - Số ngày tồn kho trang trải (Days of Cover).
+                            </ul>
+                        </div>
+
+                        <div style="background: rgba(255, 255, 255, 0.02); padding: 1rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08);">
+                            <strong style="color: var(--accent-purple); font-size: 0.95rem;">2. Biểu Đồ Đường Xu Hướng Doanh Thu (Top-Left)</strong>
+                            <ul style="padding-left: 1.1rem; font-size: 0.88rem; color: var(--text-secondary); margin-top: 0.4rem; line-height: 1.6;">
+                                • <strong>Loại C (Tím)</strong>: Dẫn đầu hệ thống (7.2 Tỷ &rarr; 7.7 Tỷ VNĐ/tháng).<br>
+                                • <strong>Loại B (Xanh Lá)</strong>: Tháng 7 đạt 4.7 Tỷ, Tháng 8 giảm xuống 3.4 Tỷ VNĐ.<br>
+                                • <strong>Loại D (Hồng)</strong>: Tháng 7 đạt 3.2 Tỷ, bứt phá Tháng 8 đạt 4.3 Tỷ - 4.4 Tỷ VNĐ.<br>
+                                • <strong>Loại A (Xanh Dương)</strong>: Tăng từ 3.2 Tỷ lên 4.0 Tỷ VNĐ (Tháng 8).
+                            </ul>
+                        </div>
+
+                        <div style="background: rgba(255, 255, 255, 0.02); padding: 1rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08);">
+                            <strong style="color: var(--accent-indigo); font-size: 0.95rem;">3. Biểu Đồ Donut Tỷ Trọng Doanh Thu (Top-Middle)</strong>
+                            <ul style="padding-left: 1.1rem; font-size: 0.88rem; color: var(--text-secondary); margin-top: 0.4rem; line-height: 1.6;">
+                                • <strong>Loại C (Standard Store)</strong>: Chiếm <strong>39.91%</strong> (22.6 Tỷ VNĐ).<br>
+                                • <strong>Loại D (Micro Store)</strong>: Chiếm <strong>20.68%</strong> (11.7 Tỷ VNĐ).<br>
+                                • <strong>Loại B (Key Store)</strong>: Chiếm <strong>20.26%</strong> (11.5 Tỷ VNĐ).<br>
+                                • <strong>Loại A (Flagship Store)</strong>: Chiếm <strong>19.15%</strong> (10.8 Tỷ VNĐ).
+                            </ul>
+                        </div>
+
+                        <div style="background: rgba(255, 255, 255, 0.02); padding: 1rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08);">
+                            <strong style="color: var(--accent-rose); font-size: 0.95rem;">4. Biểu Đồ Thanh Cảnh Báo Tồn Kho (Top-Right)</strong>
+                            <ul style="padding-left: 1.1rem; font-size: 0.88rem; color: var(--text-secondary); margin-top: 0.4rem; line-height: 1.6;">
+                                • Tất cả 15 cửa hàng đều có số ngày tồn kho từ <strong>105.78 đến 137.40 ngày</strong> (&ge; 30 ngày bán).<br>
+                                • <strong>Điểm đọng vốn cao nhất</strong>: <span class="code-tag">CH_HCM_Q3_6</span> (137.40 ngày), <span class="code-tag">CH_HCM_GV_7</span> (131.52 ngày) và <span class="code-tag">CH_HCM_Q1_0</span> (131.32 ngày).
+                            </ul>
+                        </div>
+
+                        <div style="background: rgba(255, 255, 255, 0.02); padding: 1rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08);">
+                            <strong style="color: var(--accent-blue); font-size: 0.95rem;">5. Biểu Đồ Cột Phân Bổ Doanh Thu (Bottom-Left)</strong>
+                            <ul style="padding-left: 1.1rem; font-size: 0.88rem; color: var(--text-secondary); margin-top: 0.4rem; line-height: 1.6;">
+                                • Trực quan hóa giá trị doanh thu tuyệt đối: Loại C (<strong>22.6 Tỷ VNĐ</strong>), Loại D (<strong>11.7 Tỷ VNĐ</strong>), Loại B (<strong>11.5 Tỷ VNĐ</strong>), Loại A (<strong>10.8 Tỷ VNĐ</strong>).
+                            </ul>
+                        </div>
+
+                        <div style="background: rgba(255, 255, 255, 0.02); padding: 1rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08);">
+                            <strong style="color: var(--accent-amber); font-size: 0.95rem;">6. Bảng Chi Tiết Xếp Hạng & Target (Bottom-Middle)</strong>
+                            <ul style="padding-left: 1.1rem; font-size: 0.88rem; color: var(--text-secondary); margin-top: 0.4rem; line-height: 1.6;">
+                                • <strong>Super Star (🌟 Target &ge; 110%)</strong>: <span class="code-tag">CH_HCM_GV_12</span> (115.72%), <span class="code-tag">CH_HCM_TB_8</span> (115.29%)...<br>
+                                • <strong>On Track (✅ Target 90% - 110%)</strong>: <span class="code-tag">CH_BD_TDM_4</span> (109.59%), <span class="code-tag">CH_HCM_TB_13</span> (105.46%)...<br>
+                                • <strong>Underperforming (⚠️ Target &lt; 90%)</strong>: <span class="code-tag">CH_HCM_GV_7</span> (82.62%), <span class="code-tag">CH_HCM_Q1_0</span> (84.12%)...
+                            </ul>
+                        </div>
                     </div>
                 </div>
+
+                <!-- THUYẾT MINH KỸ THUẬT MÃ DAX VIRTUAL TABLES -->
+                <div style="background: rgba(15, 23, 42, 0.95); padding: 1.5rem; border-radius: 10px; border: 1px solid var(--border-color); margin-bottom: 1.5rem;">
+                    <h4 style="font-size: 1.1rem; font-weight: 700; color: var(--accent-emerald); margin-bottom: 1.25rem;">
+                        <i class="fa-solid fa-code"></i> Thuyết Minh Chi Tiết 2 Công Thức DAX Virtual Tables Nâng Cao
+                    </h4>
+
+                    <!-- YÊU CẦU DAX 1 -->
+                    <div style="margin-bottom: 1.5rem; background: rgba(255,255,255,0.02); padding: 1.25rem; border-radius: 8px; border-left: 4px solid var(--accent-purple);">
+                        <h5 style="font-size: 1rem; font-weight: 700; color: var(--accent-purple); margin-bottom: 0.5rem;">
+                            📌 Công Thức DAX 1: Tính tỷ lệ hoàn thành mục tiêu (Achievement %) sử dụng bảng ảo (Virtual Tables)
+                        </h5>
+                        <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.7; margin-bottom: 0.75rem;">
+                            <strong>Mục tiêu nghiệp vụ</strong>: Tính phần trăm hoàn thành chỉ tiêu doanh thu kế hoạch (Target Benchmark 3.8 Tỷ VNĐ/cửa hàng) và tự động xếp loại hiệu suất vận hành cho 15 điểm bán.<br>
+                            <strong>Giải pháp kỹ thuật DAX</strong>: Khởi tạo bảng ảo <span class="code-tag">vtable_StoreTargetAchievement</span> sử dụng <span class="code-tag">SUMMARIZE</span> gom nhóm theo thông tin cửa hàng, áp dụng <span class="code-tag">CALCULATE(SUM(...))</span> để ép Context Transition lọc doanh thu riêng của từng điểm bán, dùng <span class="code-tag">DIVIDE(...)</span> tính % và hàm <span class="code-tag">SWITCH(TRUE(), ...)</span> phân loại 4 nhóm hiệu suất (<span class="code-tag">Super Star</span> &ge; 110%, <span class="code-tag">On Track</span> 90%-110%, <span class="code-tag">Underperforming</span> &lt; 90%).
+                        </p>
+
+                        <!-- INPUT - OUTPUT SPECS DAX 1 -->
+                        <div class="grid-2" style="margin-bottom: 0.85rem; font-size: 0.82rem;">
+                            <div style="background: rgba(0,0,0,0.3); padding: 0.75rem; border-radius: 6px; border: 1px solid rgba(168, 85, 247, 0.2);">
+                                <strong style="color: #c084fc;">📥 INPUT (Dữ Liệu Đầu Vào):</strong>
+                                <ul style="padding-left: 1.1rem; margin-top: 0.3rem; margin-bottom: 0; color: var(--text-secondary); line-height: 1.5;">
+                                    <li>• <span class="code-tag">processed_transactions[Total_Amount]</span>: Doanh thu chi tiết đơn bán lẻ.</li>
+                                    <li>• <span class="code-tag">processed_stores</span>: Thông tin chiều (`Store_ID`, `Store_Name`, `Region`, `Store_Type`).</li>
+                                    <li>• Hằng số Target Benchmark: <span class="code-tag">3,800,000,000 VNĐ</span> (Chỉ tiêu 3.8 Tỷ/CH).</li>
+                                </ul>
+                            </div>
+                            <div style="background: rgba(0,0,0,0.3); padding: 0.75rem; border-radius: 6px; border: 1px solid rgba(168, 85, 247, 0.2);">
+                                <strong style="color: #c084fc;">📤 OUTPUT (Bảng Ảo Kết Quả - 15 Dòng x 7 Cột):</strong>
+                                <ul style="padding-left: 1.1rem; margin-top: 0.3rem; margin-bottom: 0; color: var(--text-secondary); line-height: 1.5;">
+                                    <li>• <span class="code-tag">Actual_Revenue</span>: Tổng doanh thu thực tế tích lũy của từng cửa hàng.</li>
+                                    <li>• <span class="code-tag">Achievement_Pct</span>: Tỷ lệ % hoàn thành (`Actual_Revenue / 3.8 Tỷ`).</li>
+                                    <li>• <span class="code-tag">Performance_Status</span>: Xếp loại nhãn (`Super Star`, `On Track`, `Underperforming`).</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <pre style="background: #090d16; padding: 1rem; border-radius: 6px; color: #38bdf8; font-family: monospace; font-size: 0.88rem; overflow-x: auto; border: 1px solid rgba(255,255,255,0.1);">vtable_StoreTargetAchievement = 
+ADDCOLUMNS(
+    SUMMARIZE(
+        processed_transactions,
+        processed_stores[Store_ID],
+        processed_stores[Store_Name],
+        processed_stores[Region],
+        processed_stores[Store_Type]
+    ),
+    "Actual_Revenue", CALCULATE(SUM(processed_transactions[Total_Amount])),
+    "Achievement_Pct", DIVIDE(CALCULATE(SUM(processed_transactions[Total_Amount])), 3800000000, 0),
+    "Performance_Status", 
+        SWITCH(
+            TRUE(),
+            DIVIDE(CALCULATE(SUM(processed_transactions[Total_Amount])), 3800000000, 0) >= 1.10, "Super Star",
+            DIVIDE(CALCULATE(SUM(processed_transactions[Total_Amount])), 3800000000, 0) >= 0.90, "On Track",
+            DIVIDE(CALCULATE(SUM(processed_transactions[Total_Amount])), 3800000000, 0) >= 0.75, "Underperforming",
+            "Critical Warning"
+        )
+)</pre>
+                    </div>
+
+                    <!-- YÊU CẦU DAX 2 -->
+                    <div style="background: rgba(255,255,255,0.02); padding: 1.25rem; border-radius: 8px; border-left: 4px solid var(--accent-emerald);">
+                        <h5 style="font-size: 1rem; font-weight: 700; color: var(--accent-emerald); margin-bottom: 0.5rem;">
+                            📌 Công Thức DAX 2: Phân bổ doanh thu theo loại cửa hàng (% Revenue Allocation)
+                        </h5>
+                        <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.7; margin-bottom: 0.75rem;">
+                            <strong>Mục tiêu nghiệp vụ</strong>: Tính tỷ trọng phần trăm đóng góp doanh thu của từng phân loại cửa hàng (Loại A, B, C, D) trên tổng doanh thu toàn hệ thống.<br>
+                            <strong>Giải pháp kỹ thuật DAX</strong>: Khởi tạo bảng ảo <span class="code-tag">vtable_StoreTypeRevenueAllocation</span> sử dụng biến <span class="code-tag">VAR GrandTotalSales = CALCULATE(SUM(...), ALL(processed_transactions))</span> để cố định mẫu số tổng (56.597 Tỷ VNĐ), thực hiện phép chia <span class="code-tag">DIVIDE(CALCULATE(SUM(...)), GrandTotalSales, 0)</span> đảm bảo tổng tỷ trọng đóng góp của 4 nhóm cộng lại đúng bằng 100.0%.
+                        </p>
+
+                        <!-- INPUT - OUTPUT SPECS DAX 2 -->
+                        <div class="grid-2" style="margin-bottom: 0.85rem; font-size: 0.82rem;">
+                            <div style="background: rgba(0,0,0,0.3); padding: 0.75rem; border-radius: 6px; border: 1px solid rgba(16, 185, 129, 0.2);">
+                                <strong style="color: #34d399;">📥 INPUT (Dữ Liệu Đầu Vào):</strong>
+                                <ul style="padding-left: 1.1rem; margin-top: 0.3rem; margin-bottom: 0; color: var(--text-secondary); line-height: 1.5;">
+                                    <li>• <span class="code-tag">processed_stores[Store_Type]</span>: Danh mục loại cửa hàng (`A`, `B`, `C`, `D`).</li>
+                                    <li>• <span class="code-tag">processed_transactions[Total_Amount]</span>: Doanh thu đơn bán lẻ.</li>
+                                    <li>• Phép toán <span class="code-tag">ALL(...)</span>: Ép lấy mẫu số tổng toàn chuỗi = <strong>56.597 Tỷ VNĐ</strong>.</li>
+                                </ul>
+                            </div>
+                            <div style="background: rgba(0,0,0,0.3); padding: 0.75rem; border-radius: 6px; border: 1px solid rgba(16, 185, 129, 0.2);">
+                                <strong style="color: #34d399;">📤 OUTPUT (Bảng Ảo Kết Quả - 4 Dòng x 4 Cột):</strong>
+                                <ul style="padding-left: 1.1rem; margin-top: 0.3rem; margin-bottom: 0; color: var(--text-secondary); line-height: 1.5;">
+                                    <li>• <span class="code-tag">StoreType_Revenue</span>: Doanh thu (C: 22.6B, D: 11.7B, B: 11.5B, A: 10.8B).</li>
+                                    <li>• <span class="code-tag">Grand_Total_Revenue</span>: Cố định 56.597 Tỷ VNĐ cho cả 4 dòng.</li>
+                                    <li>• <span class="code-tag">Revenue_Allocation_Pct</span>: Tỷ trọng (C: 39.91%, D: 20.68%, B: 20.26%, A: 19.15% &rarr; <strong>Tổng 100.0%</strong>).</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <pre style="background: #090d16; padding: 1rem; border-radius: 6px; color: #a7f3d0; font-family: monospace; font-size: 0.88rem; overflow-x: auto; border: 1px solid rgba(255,255,255,0.1);">vtable_StoreTypeRevenueAllocation = 
+VAR GrandTotalSales = CALCULATE(SUM(processed_transactions[Total_Amount]), ALL(processed_transactions))
+RETURN
+ADDCOLUMNS(
+    SUMMARIZE(
+        processed_stores,
+        processed_stores[Store_Type]
+    ),
+    "StoreType_Revenue", CALCULATE(SUM(processed_transactions[Total_Amount])),
+    "Grand_Total_Revenue", GrandTotalSales,
+    "Revenue_Allocation_Pct", DIVIDE(CALCULATE(SUM(processed_transactions[Total_Amount])), GrandTotalSales, 0)
+)</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PHẦN 4: TƯ DUY HỆ THỐNG & QUẢN TRỊ CODEBASE (PHẦN 4) -->
+            <div class="content-card">
+                <div class="card-header-title">
+                    <i class="fa-solid fa-sliders"></i> 4. Tư Duy Hệ Thống & Quản Trị Codebase (Phần 4)
+                </div>
+                <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
+                    Phương án điều tra xử lý sự cố chi phí BigQuery và giải pháp tái thiết kế mã nguồn Python quản trị logic phân loại cửa hàng:
+                </p>
+
+                <!-- TÌNH HUỐNG 1 -->
+                <div style="background: rgba(15, 23, 42, 0.95); padding: 1.5rem; border-radius: 10px; border: 1px solid var(--border-color); margin-bottom: 2rem;">
+                    <h4 style="font-size: 1.05rem; font-weight: 700; color: var(--accent-rose); margin-bottom: 1rem;">
+                        🔴 Tình Huống 1: Tối Ưu Hệ Thống BigQuery & Xử Lý Sự Cố Chi Phí
+                    </h4>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.25rem;">
+                        <strong>Tình huống bài toán</strong>: Pipeline dữ liệu tự động hằng ngày trên BigQuery đột ngột tăng vọt chi phí (cost) gấp 3 lần và chạy rất chậm, dù lượng dữ liệu đầu vào không có sự đột biến.
+                    </p>
+
+                    <!-- LƯỚI 2 CỘT: 5 BƯỚC ĐIỀU TRA & 5 KỸ THUẬT TỐI ƯU -->
+                    <div class="grid-2" style="margin-bottom: 1.5rem;">
+                        <!-- ĐIỀU TRA ROOT CAUSE (TƯ DUY HỆ THỐNG) -->
+                        <div style="background: rgba(239, 68, 68, 0.05); padding: 1.25rem; border-left: 4px solid var(--accent-rose); border-radius: 8px;">
+                            <h4 style="font-size: 1.05rem; font-weight: 700; color: var(--accent-rose); margin-bottom: 1rem;">
+                                🔍 5 Bước Điều Tra Nguyên Nhân Gốc (Tư Duy Hệ Thống - Troubleshooting)
+                            </h4>
+                            <div style="display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.88rem;">
+                                <div>
+                                    <strong style="color: var(--text-primary);">Bước 1. Rà Soát Log & Chỉ Số Vận Hành (System Metrics Audit)</strong>
+                                    <p style="color: var(--text-secondary); margin-top: 0.15rem; margin-bottom: 0;">Đánh giá dung lượng dữ liệu quét, thời gian thực thi (runtime) và mức tiêu thụ tài nguyên phần cứng (CPU/Slots) so với mốc lịch sử vận hành bình thường.</p>
+                                </div>
+                                <div>
+                                    <strong style="color: var(--text-primary);">Bước 2. Phân Tích Sơ Đồ Thực Thi & Điểm Nghẽn (Execution Profile Analysis)</strong>
+                                    <p style="color: var(--text-secondary); margin-top: 0.15rem; margin-bottom: 0;">Kiểm tra luồng xử lý dữ liệu để phát hiện điểm nghẽn hệ thống (bottlenecks), lệch dữ liệu (data skew) hoặc bùng nổ dữ liệu trung gian.</p>
+                                </div>
+                                <div>
+                                    <strong style="color: var(--text-primary);">Bước 3. Rà Soát Lịch Sử Thay Đổi Hệ Thống (System Change Audit)</strong>
+                                    <p style="color: var(--text-secondary); margin-top: 0.15rem; margin-bottom: 0;">Rà soát lịch sử cập nhật mã nguồn (Git commits) và cấu hình Pipeline gần nhất để xác định các thay đổi trong logic xử lý hoặc bộ lọc dữ liệu.</p>
+                                </div>
+                                <div>
+                                    <strong style="color: var(--text-primary);">Bước 4. Kiểm Tra Cơ Chế Lọc & Phân Vùng Dữ Liệu (Partitioning Governance)</strong>
+                                    <p style="color: var(--text-secondary); margin-top: 0.15rem; margin-bottom: 0;">Xác minh cơ chế quét dữ liệu theo phân vùng (Partition pruning) có hoạt động hiệu quả hay bị vô hiệu hóa do biến đổi dữ liệu trực tiếp.</p>
+                                </div>
+                                <div>
+                                    <strong style="color: var(--text-primary);">Bước 5. Đánh Giá Tranh Chấp Tài Nguyên Hệ Thống (Concurrency Check)</strong>
+                                    <p style="color: var(--text-secondary); margin-top: 0.15rem; margin-bottom: 0;">Đánh giá mức độ xung đột và cạnh tranh tài nguyên khi có nhiều luồng ETL (concurrent pipelines) cùng thực thi đồng thời trên hệ thống.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- KỸ THUẬT TỐI ƯU OVERVIEW -->
+                        <div style="background: rgba(16, 185, 129, 0.05); padding: 1.25rem; border-left: 4px solid var(--accent-emerald); border-radius: 8px;">
+                            <h4 style="font-size: 1.05rem; font-weight: 700; color: var(--accent-emerald); margin-bottom: 1rem;">
+                                🛠️ 5 Kỹ Thuật Tối Ưu SQL Áp Dụng (Optimization)
+                            </h4>
+                            <div style="display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.88rem;">
+                                <div>
+                                    <strong style="color: var(--text-primary);">Kỹ Thuật 1. Partitioning & Clustering</strong>
+                                    <p style="color: var(--text-secondary); margin-top: 0.15rem; margin-bottom: 0;">Phân vùng theo Ngày và cụm theo Store/Product; bật <span class="code-tag">require_partition_filter = TRUE</span> bắt buộc lọc chỉ mục.</p>
+                                </div>
+                                <div>
+                                    <strong style="color: var(--text-primary);">Kỹ Thuật 2. Columnar Selection (Tránh SELECT *)</strong>
+                                    <p style="color: var(--text-secondary); margin-top: 0.15rem; margin-bottom: 0;">Tuyệt đối bỏ SELECT *, chỉ chỉ định danh sách cột cần thiết giúp tiết kiệm ngay 60-80% byte quét.</p>
+                                </div>
+                                <div>
+                                    <strong style="color: var(--text-primary);">Kỹ Thuật 3. Khử JOIN Explosion & Data Skew</strong>
+                                    <p style="color: var(--text-secondary); margin-top: 0.15rem; margin-bottom: 0;">Dùng khóa Surrogate Key Hash <span class="code-tag">FARM_FINGERPRINT</span> và deduplicate dữ liệu trước khi JOIN.</p>
+                                </div>
+                                <div>
+                                    <strong style="color: var(--text-primary);">Kỹ Thuật 4. Incremental Load Với MERGE INTO</strong>
+                                    <p style="color: var(--text-secondary); margin-top: 0.15rem; margin-bottom: 0;">Chuyển <span class="code-tag">CREATE OR REPLACE TABLE</span> sang <span class="code-tag">MERGE INTO</span> chỉ nạp và cập nhật phần dữ liệu Delta trong ngày.</p>
+                                </div>
+                                <div>
+                                    <strong style="color: var(--text-primary);">Kỹ Thuật 5. Materialized Views & Temp Storage</strong>
+                                    <p style="color: var(--text-secondary); margin-top: 0.15rem; margin-bottom: 0;">Tạo <span class="code-tag">MATERIALIZED VIEW</span> hoặc Temp Tables đối với các phép tính toán trung gian lặp đi lặp lại.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- MINH HỌA SQL CODE MẪU CHI TIẾT 5 VÍ DỤ TƯƠNG ỨNG 1-1 -->
+                    <div style="background: #090d16; padding: 1.25rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1);">
+                        <h4 style="color: var(--accent-blue); font-size: 1rem; font-weight: 700; margin-bottom: 1rem;">
+                            💡 Minh Họa Chi Tiết 5 Ví Dụ SQL Trước & Sau Khi Áp Dụng 5 Kỹ Thuật Tối Ưu (Khớp Perfect 100%):
+                        </h4>
+                        
+                        <!-- VÍ DỤ KỸ THUẬT 1 -->
+                        <div style="margin-bottom: 1rem; padding-bottom: 0.85rem; border-bottom: 1px dashed rgba(255,255,255,0.15);">
+                            <span style="color: var(--accent-amber); font-size: 0.88rem; font-weight: 700;">📌 Ví Dụ 1 (Khớp Kỹ Thuật 1: Partitioning & Clustering): Ép Dùng Chỉ Mục Lọc `_PARTITIONDATE` & Clustering</span>
+                            <div class="grid-2" style="margin-top: 0.4rem;">
+                                <div>
+                                    <span style="color: var(--accent-rose); font-size: 0.82rem; font-weight: 700;">❌ Trước Tối Ưu (Bọc hàm DATE() làm mất chỉ mục, quét 100GB thô):</span>
+                                    <pre style="background: rgba(0,0,0,0.5); padding: 0.6rem; border-radius: 6px; color: #f87171; font-family: monospace; font-size: 0.8rem; margin-top: 0.2rem;">SELECT store_id, SUM(total_amount) AS revenue
+FROM `project.dataset.sales_raw`
+WHERE DATE(timestamp_col) >= '2026-07-01' AND store_id = 'CH_HCM_Q1_0'
+GROUP BY store_id;</pre>
+                                </div>
+                                <div>
+                                    <span style="color: var(--accent-emerald); font-size: 0.82rem; font-weight: 700;">✅ Sau Tối Ưu (Dùng _PARTITIONDATE & cụm store_id, quét đúng 2GB):</span>
+                                    <pre style="background: rgba(0,0,0,0.5); padding: 0.6rem; border-radius: 6px; color: #34d399; font-family: monospace; font-size: 0.8rem; margin-top: 0.2rem;">SELECT store_id, SUM(total_amount) AS revenue
+FROM `project.dataset.sales_partitioned_clustered`
+WHERE _PARTITIONDATE >= '2026-07-01' AND store_id = 'CH_HCM_Q1_0'
+GROUP BY store_id;</pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- VÍ DỤ KỸ THUẬT 2 -->
+                        <div style="margin-bottom: 1rem; padding-bottom: 0.85rem; border-bottom: 1px dashed rgba(255,255,255,0.15);">
+                            <span style="color: var(--accent-amber); font-size: 0.88rem; font-weight: 700;">📌 Ví Dụ 2 (Khớp Kỹ Thuật 2: Columnar Selection): loại Bỏ `SELECT *`, Chỉ Chọn Cột Cần Thiết</span>
+                            <div class="grid-2" style="margin-top: 0.4rem;">
+                                <div>
+                                    <span style="color: var(--accent-rose); font-size: 0.82rem; font-weight: 700;">❌ Trước Tối Ưu (SELECT * quét toàn bộ 50 cột ngốn 100GB):</span>
+                                    <pre style="background: rgba(0,0,0,0.5); padding: 0.6rem; border-radius: 6px; color: #f87171; font-family: monospace; font-size: 0.8rem; margin-top: 0.2rem;">SELECT * 
+FROM `dataset.transactions_raw`
+WHERE _PARTITIONDATE = '2026-07-23';</pre>
+                                </div>
+                                <div>
+                                    <span style="color: var(--accent-emerald); font-size: 0.82rem; font-weight: 700;">✅ Sau Tối Ưu (Chỉ chọn 3 cột cần thiết, tiết kiệm 90% byte):</span>
+                                    <pre style="background: rgba(0,0,0,0.5); padding: 0.6rem; border-radius: 6px; color: #34d399; font-family: monospace; font-size: 0.8rem; margin-top: 0.2rem;">SELECT transaction_id, store_id, total_amount
+FROM `dataset.transactions_raw`
+WHERE _PARTITIONDATE = '2026-07-23';</pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- VÍ DỤ KỸ THUẬT 3 -->
+                        <div style="margin-bottom: 1rem; padding-bottom: 0.85rem; border-bottom: 1px dashed rgba(255,255,255,0.15);">
+                            <span style="color: var(--accent-amber); font-size: 0.88rem; font-weight: 700;">📌 Ví Dụ 3 (Khớp Kỹ Thuật 3: Khử JOIN Explosion): Deduplicate & Dùng Khóa Hash (`FARM_FINGERPRINT`)</span>
+                            <div class="grid-2" style="margin-top: 0.4rem;">
+                                <div>
+                                    <span style="color: var(--accent-rose); font-size: 0.82rem; font-weight: 700;">❌ Trước Tối Ưu (JOIN trên chuỗi Text trùng lặp chưa deduplicate gây nổ dòng):</span>
+                                    <pre style="background: rgba(0,0,0,0.5); padding: 0.6rem; border-radius: 6px; color: #f87171; font-family: monospace; font-size: 0.8rem; margin-top: 0.2rem;">SELECT s.store_name, p.product_name, SUM(t.amount)
+FROM `sales_raw` t JOIN `stores_raw` s ON t.store_name = s.store_name
+JOIN `products_raw` p ON t.prod_name = p.prod_name GROUP BY 1, 2;</pre>
+                                </div>
+                                <div>
+                                    <span style="color: var(--accent-emerald); font-size: 0.82rem; font-weight: 700;">✅ Sau Tối Ưu (Pre-aggregate & JOIN trên khóa Hash số nguyên):</span>
+                                    <pre style="background: rgba(0,0,0,0.5); padding: 0.6rem; border-radius: 6px; color: #34d399; font-family: monospace; font-size: 0.8rem; margin-top: 0.2rem;">SELECT s.store_name, p.product_name, t.total_amount
+FROM `aggregated_sales` t 
+JOIN `dim_store` s ON t.store_key = s.store_key
+JOIN `dim_product` p ON t.product_key = p.product_key;</pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- VÍ DỤ KỸ THUẬT 4 -->
+                        <div style="margin-bottom: 1rem; padding-bottom: 0.85rem; border-bottom: 1px dashed rgba(255,255,255,0.15);">
+                            <span style="color: var(--accent-amber); font-size: 0.88rem; font-weight: 700;">📌 Ví Dụ 4 (Khớp Kỹ Thuật 4: Incremental Load): Chuyển `CREATE OR REPLACE` Sang `MERGE INTO`</span>
+                            <div class="grid-2" style="margin-top: 0.4rem;">
+                                <div>
+                                    <span style="color: var(--accent-rose); font-size: 0.82rem; font-weight: 700;">❌ Trước Tối Ưu (Tính và ghi đè lại 100% dữ liệu lịch sử hằng ngày):</span>
+                                    <pre style="background: rgba(0,0,0,0.5); padding: 0.6rem; border-radius: 6px; color: #f87171; font-family: monospace; font-size: 0.8rem; margin-top: 0.2rem;">CREATE OR REPLACE TABLE `dataset.daily_summary` AS
+SELECT transaction_date, store_id, SUM(total_amount) AS sales
+FROM `dataset.sales_partitioned` GROUP BY 1, 2;</pre>
+                                </div>
+                                <div>
+                                    <span style="color: var(--accent-emerald); font-size: 0.82rem; font-weight: 700;">✅ Sau Tối Ưu (MERGE chỉ nạp và cập nhật dữ liệu ngày hiện tại):</span>
+                                    <pre style="background: rgba(0,0,0,0.5); padding: 0.6rem; border-radius: 6px; color: #34d399; font-family: monospace; font-size: 0.8rem; margin-top: 0.2rem;">MERGE INTO `dataset.daily_summary` T
+USING `dataset.today_delta` S ON T.txn_date = S.txn_date AND T.store_id = S.store_id
+WHEN MATCHED THEN UPDATE SET sales = S.sales
+WHEN NOT MATCHED THEN INSERT VALUES(S.txn_date, S.store_id, S.sales);</pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- VÍ DỤ KỸ THUẬT 5 -->
+                        <div>
+                            <span style="color: var(--accent-amber); font-size: 0.88rem; font-weight: 700;">📌 Ví Dụ 5 (Khớp Kỹ Thuật 5: Materialized Views & Temp Storage): Cache Kết Quả Phức Tạp</span>
+                            <div class="grid-2" style="margin-top: 0.4rem;">
+                                <div>
+                                    <span style="color: var(--accent-rose); font-size: 0.82rem; font-weight: 700;">❌ Trước Tối Ưu (Tính đi tính lại subquery phức tạp ở nhiều nơi):</span>
+                                    <pre style="background: rgba(0,0,0,0.5); padding: 0.6rem; border-radius: 6px; color: #f87171; font-family: monospace; font-size: 0.8rem; margin-top: 0.2rem;">SELECT s.store_name, 
+       (SELECT SUM(total_amount) FROM `sales_partitioned` WHERE store_id = s.store_id)
+FROM `dim_store` s;</pre>
+                                </div>
+                                <div>
+                                    <span style="color: var(--accent-emerald); font-size: 0.82rem; font-weight: 700;">✅ Sau Tối Ưu (Tạo Materialized View tự động cache kết quả):</span>
+                                    <pre style="background: rgba(0,0,0,0.5); padding: 0.6rem; border-radius: 6px; color: #34d399; font-family: monospace; font-size: 0.8rem; margin-top: 0.2rem;">CREATE MATERIALIZED VIEW `dataset.mv_daily_store_sales` AS
+SELECT _PARTITIONDATE AS sales_date, store_id, SUM(total_amount) AS total_sales
+FROM `dataset.sales_partitioned` GROUP BY 1, 2;</pre>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- TÌNH HUỐNG 2 -->
+                <div style="background: rgba(15, 23, 42, 0.95); padding: 1.5rem; border-radius: 10px; border: 1px solid var(--border-color);">
+                    <h4 style="font-size: 1.05rem; font-weight: 700; color: var(--accent-emerald); margin-bottom: 1rem;">
+                        🟢 Tình Huống 2: Quản Trị Logic & Quản Lý Codebase Python `classify_shop`
+                    </h4>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.25rem;">
+                        <strong>Tình huống bài toán</strong>: Hàm Python <span class="code-tag">classify_shop(score, kpi_count)</span> bị sửa trực tiếp (hardcode) khi Business đổi ngưỡng quy tắc, làm sai lệch và mâu thuẫn dữ liệu lịch sử các tháng trước.
+                    </p>
+
+                    <div class="grid-2" style="margin-bottom: 1.25rem;">
+                        <div style="background: rgba(239, 68, 68, 0.05); padding: 1.25rem; border-left: 4px solid var(--accent-rose); border-radius: 8px;">
+                            <strong style="color: var(--accent-rose); font-size: 0.95rem;">⚠️ 3 Hạn Chế Của Code Gốc</strong>
+                            <div style="display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.88rem; margin-top: 0.6rem;">
+                                <div><strong>1. Mã Hóa Cứng (Hardcoding)</strong>: Ngưỡng quy tắc bị nhúng thẳng trong code Python, bắt buộc sửa code và redeploy mỗi khi đổi rule.</div>
+                                <div><strong>2. Mất Bảo Toàn Lịch Sử (No Versioning)</strong>: Sửa trực tiếp hàm làm tính lại toàn bộ dữ liệu lịch sử quá khứ theo quy tắc mới.</div>
+                                <div><strong>3. Thiếu Khả Năng Audit</strong>: Không thể biết ai đã thay đổi quy tắc vào thời điểm nào và áp dụng từ ngày nào.</div>
+                            </div>
+                        </div>
+
+                        <div style="background: rgba(16, 185, 129, 0.05); padding: 1.25rem; border-left: 4px solid var(--accent-emerald); border-radius: 8px;">
+                            <strong style="color: var(--accent-emerald); font-size: 0.95rem;">💡 3 Giải Pháp Cải Tiến Kỹ Thuật</strong>
+                            <div style="display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.88rem; margin-top: 0.6rem;">
+                                <div><strong>1. Config-Driven Architecture</strong>: Đưa toàn bộ quy tắc phân loại ra tệp cấu hình YAML độc lập.</div>
+                                <div><strong>2. SCD Type 2 Rule Engine</strong>: Gán mốc thời gian hiệu lực cho từng phiên bản quy tắc, đảm bảo dữ liệu lịch sử chuẩn xác.</div>
+                                <div><strong>3. Kiểm Soát Phiên Bản (Git & Pytest)</strong>: Quản lý lịch sử sửa file YAML bằng Git commit log và chạy Unit Test tự động.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- MINH HỌA PYTHON CODE MẪU -->
+                    <div style="background: #090d16; padding: 1.25rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1);">
+                        <strong style="color: var(--accent-blue); font-size: 0.95rem;">💡 Minh Họa Giải Pháp Refactoring Code Python & File Cấu Hình YAML:</strong>
+                        <div class="grid-2" style="margin-top: 0.75rem;">
+                            <div>
+                                <span style="color: var(--accent-rose); font-size: 0.85rem; font-weight: 700;">❌ Code Gốc (Mã Hóa Cứng & Sửa Trực Tiếp):</span>
+                                <pre style="background: rgba(0,0,0,0.5); padding: 0.75rem; border-radius: 6px; color: #f87171; font-family: monospace; font-size: 0.82rem; margin-top: 0.3rem;"># Code cũ bị sửa trực tiếp làm sai số liệu quá khứ
+def classify_shop(score, kpi_count):
+    if score >= 1 and kpi_count >= 6: 
+        return "Xuất sắc"
+    if score >= 0.85 and kpi_count >= 5: 
+        return "Tốt"
+    if score >= 0.7 and kpi_count >= 4: 
+        return "Khá"
+    if score >= 0.5 and kpi_count >= 2: 
+        return "Kém"
+    return "Cảnh báo"</pre>
+                            </div>
+                            <div>
+                                <span style="color: var(--accent-emerald); font-size: 0.85rem; font-weight: 700;">✅ Code Mới (Config-Driven & Version Control):</span>
+                                <pre style="background: rgba(0,0,0,0.5); padding: 0.75rem; border-radius: 6px; color: #34d399; font-family: monospace; font-size: 0.82rem; margin-top: 0.3rem;"># configs/shop_classifier.yaml (Quản lý qua Git)
+rules:
+  - effective_from: "2026-01-01"
+    effective_to: "2026-06-30"
+    thresholds:
+      - {label: "Xuất sắc", min_score: 0.9, min_kpi: 5}
+  - effective_from: "2026-07-01"
+    effective_to: null  # Hiện tại
+    thresholds:
+      - {label: "Xuất sắc", min_score: 1.0, min_kpi: 6}
+
+# Code Python load đúng rule theo transaction_date
+def classify_shop_v2(score, kpi_count, transaction_date, rules):
+    active_rules = get_rules_by_date(rules, transaction_date)
+    for tier in active_rules:
+        if score >= tier["min_score"] and kpi_count >= tier["min_kpi"]:
+            return tier["label"]
+    return "Cảnh báo"</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
         </section>
 
         <!-- TAB 5: KẾT QUẢ ĐẦU RA THỰC TẾ -->
         <section id="tab5" class="tab-panel">
+            <!-- 1. BẢNG TỔNG HỢP 6 TỆP PROCESSED DATASETS -->
             <div class="content-card">
                 <div class="card-header-title">
-                    <i class="fa-solid fa-square-poll-vertical"></i> Kết Quả Đầu Ra Thực Tế (Output Artefacts)
+                    <i class="fa-solid fa-file-csv"></i> Kết Quả Dữ Liệu Sạch Đầu Ra (Processed Datasets - `data/processed/*.csv`)
+                </div>
+                <p style="color: var(--text-secondary); margin-bottom: 1.25rem;">
+                    Sau khi thực thi Pipeline ETL Python, 6 tệp dữ liệu sạch đã được chuẩn hóa và xuất ra thư mục <span class="code-tag">data/processed/*.csv</span> sẵn sàng nạp vào BigQuery Data Warehouse:
+                </p>
+
+                <div class="table-responsive" style="margin-bottom: 1rem;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Tên File Đầu Ra</th>
+                                <th>Số Dòng x Số Cột</th>
+                                <th>Dung Lượng File</th>
+                                <th>Kết Quả Xử Lý Nghiệp Vụ Thực Tế</th>
+                                <th>Trạng Thái Test</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="code-tag">processed_transactions.csv</span></td>
+                                <td>1,800 dòng x 14 cột</td>
+                                <td>224.5 KB</td>
+                                <td><strong>Bảng Fact Giao Dịch POS Sạch:</strong> Khử 15 đơn trùng lặp, bổ khuyết 19 đơn Null Quantity (bảo toàn 380+ tr VNĐ). Nạp vào BigQuery làm <span class="code-tag">fact_sales</span>.</td>
+                                <td><span class="tag-emerald">✅ Cleaned</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="code-tag">processed_inventory.csv</span></td>
+                                <td>1,350 dòng x 9 cột</td>
+                                <td>62.5 KB</td>
+                                <td><strong>Bảng Fact Tồn Kho Daily:</strong> Khôi phục tồn cuối bị khuyết & tính số ngày trang trải kho. Nạp vào BigQuery làm <span class="code-tag">fact_inventory</span> để cảnh báo Overstock.</td>
+                                <td><span class="tag-emerald">✅ Imputed</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="code-tag">store_performance.csv</span></td>
+                                <td>45 dòng x 7 cột</td>
+                                <td>2.5 KB</td>
+                                <td><strong>Bảng KPI Hiệu Suất Cửa Hàng Tháng:</strong> Đối soát Doanh thu thực tế vs Target Revenue để tính % Achievement cho 15 cửa hàng x 3 tháng Quý 3.</td>
+                                <td><span class="tag-emerald">✅ Evaluated</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="code-tag">daily_run_rate.csv</span></td>
+                                <td>150 dòng x 9 cột</td>
+                                <td>13.5 KB</td>
+                                <td><strong>Bảng Chỉ Số Tốc Độ Bán Hàng (DRR):</strong> Thống kê tốc độ bán trung bình ngày per Cửa hàng - Sản phẩm (15 CH x 10 SP), làm tham số tính đọng vốn kho.</td>
+                                <td><span class="tag-emerald">✅ Calculated</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="code-tag">processed_stores.csv</span></td>
+                                <td>15 dòng x 8 cột</td>
+                                <td>1.3 KB</td>
+                                <td><strong>Bảng Dimension Cửa Hàng Master:</strong> Danh mục 15 cửa hàng gắn nhãn phân loại Tier động. Nạp vào BigQuery làm <span class="code-tag">dim_stores</span> phân tích theo RSM/AM.</td>
+                                <td><span class="tag-emerald">✅ Classified</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="code-tag">processed_products.csv</span></td>
+                                <td>10 dòng x 5 cột</td>
+                                <td>0.6 KB</td>
+                                <td><strong>Bảng Dimension Sản Phẩm Master:</strong> Danh mục 10 sản phẩm công nghệ & giá niêm yết chuẩn. Nạp vào BigQuery làm <span class="code-tag">dim_products_scd2</span> bảo toàn lịch sử giá.</td>
+                                <td><span class="tag-emerald">✅ Verified</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
 
-                <div class="grid-2" style="margin-bottom: 1.5rem;">
-                    <div class="feature-box">
-                        <div class="feature-title"><i class="fa-solid fa-file-csv"></i> Kết quả Tệp Dữ liệu Sạch (Processed Datasets)</div>
-                        <ul style="list-style: none; font-size: 0.9rem; color: var(--text-secondary); line-height: 1.8;">
-                            <li>• <span class="code-tag">cleaned_transactions.csv</span>: 1,800 dòng giao dịch chuẩn hóa.</li>
-                            <li>• <span class="code-tag">cleaned_inventory_logs.csv</span>: 1,350 dòng nhật ký kho khôi phục tồn cuối.</li>
-                            <li>• <span class="code-tag">integrated_daily_inventory_sales.csv</span>: Tệp dữ liệu sạch tích hợp chỉ số DRR và Inventory to Sales Ratio.</li>
-                            <li>• **Automated Unit Tests**: Đạt <strong>100% Pass Rate (5/5 tests)</strong> khi thực thi <span class="code-tag">python -m pytest tests/ -v</span>.</li>
-                        </ul>
-                    </div>
-
-                    <div class="feature-box">
-                        <div class="feature-title"><i class="fa-solid fa-chart-pie"></i> Kết quả Mô hình Data Warehouse & Dashboard</div>
-                        <ul style="list-style: none; font-size: 0.9rem; color: var(--text-secondary); line-height: 1.8;">
-                            <li>• **BigQuery Data Warehouse**: Khởi tạo bảng chiều <span class="code-tag">dim_products_scd2</span> bảo toàn 100% biến động giá. Giảm 90% chi phí scan dữ liệu nhờ Partitioning.</li>
-                            <li>• **Power BI DAX Measures**: Mã Virtual Tables <span class="code-tag">vtable_StoreTargetAchievement</span> tính toán Tỷ lệ đạt mục tiêu Target đạt <strong>57.8%</strong> ở tháng cao điểm.</li>
-                        </ul>
-                    </div>
+                <!-- NÚT TOGGLE ẨN / HIỆN XEM TRƯỚC DỮ LIỆU -->
+                <div style="margin-top: 1.25rem; display: flex; justify-content: space-between; align-items: center;">
+                    <button id="togglePreviewBtn" onclick="toggleDataPreview()" class="tab-btn active" style="padding: 0.5rem 1rem; font-size: 0.85rem; border-radius: 6px; cursor: pointer; background: var(--accent-blue); color: #fff; border: none; font-weight: 600; display: inline-flex; align-items: center; gap: 0.5rem;">
+                        <i class="fa-solid fa-eye-slash"></i> Ẩn Mẫu Xem Trước Dữ Liệu (5 Dòng)
+                    </button>
+                    <span style="font-size: 0.8rem; color: var(--text-secondary);">💡 Xem trước 100% trường dữ liệu chuẩn hóa của 6 file đầu ra</span>
                 </div>
 
-                <div class="grid-3">
-                    <div class="feature-box">
-                        <div class="feature-title">1. Tỷ Lệ Hoàn Thành Mục Tiêu</div>
-                        <div class="stat-val" style="color: var(--accent-emerald); margin: 0.5rem 0;">57.8%</div>
-                        <div class="feature-desc">
-                            Mã DAX Virtual Table <span class="code-tag">vtable_StoreTargetAchievement</span> đã tính toán tỷ lệ đạt Target doanh thu tháng cao điểm đạt 57.8% tại các cửa hàng Flagship.
+                <!-- KHỐI XEM TRƯỚC 5 DÒNG DỮ LIỆU ĐẦU (SAMPLE DATA PREVIEW 5 ROWS) -->
+                <div id="sampleDataPreviewContainer" style="margin-top: 1rem; background: rgba(0, 0, 0, 0.25); padding: 1.25rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08);">
+                    <h4 style="font-size: 1rem; font-weight: 700; color: var(--accent-emerald); margin-bottom: 1rem;">
+                        <i class="fa-solid fa-table-list"></i> Mẫu Xem Trước 5 Dòng Dữ Liệu Đầu (100% Full Columns Preview)
+                    </h4>
+
+                    <!-- 1. PREVIEW: TRANSACTIONS (14 CỘT) -->
+                    <div style="margin-bottom: 1.5rem;">
+                        <strong style="color: var(--accent-purple); font-size: 0.9rem;">📌 1. `processed_transactions.csv` (14/14 Cột Chuẩn Hóa POS)</strong>
+                        <div class="table-responsive" style="margin-top: 0.4rem;">
+                            <table style="font-size: 0.76rem;">
+                                <thead>
+                                    <tr>
+                                        <th>Transaction_ID</th>
+                                        <th>Date</th>
+                                        <th>Product_ID</th>
+                                        <th>Store_ID</th>
+                                        <th>Quantity</th>
+                                        <th>Unit_Price</th>
+                                        <th>Total_Amount</th>
+                                        <th>Month_Year</th>
+                                        <th>Store_Name</th>
+                                        <th>Region</th>
+                                        <th>Store_Type</th>
+                                        <th>Product_Name</th>
+                                        <th>Brand</th>
+                                        <th>Category</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><span class="code-tag">TXN1705</span></td>
+                                        <td>2026-07-08</td>
+                                        <td>P002</td>
+                                        <td>ST005</td>
+                                        <td>1.0</td>
+                                        <td>29,500,000</td>
+                                        <td>29,500,000.0</td>
+                                        <td>2026-07</td>
+                                        <td>CH_BD_TDM_4</td>
+                                        <td>Miền Nam</td>
+                                        <td>C</td>
+                                        <td>Samsung Galaxy S24 Ultra</td>
+                                        <td>Samsung</td>
+                                        <td>Smartphone</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="code-tag">TXN1704</span></td>
+                                        <td>2026-09-21</td>
+                                        <td>P005</td>
+                                        <td>ST008</td>
+                                        <td>1.0</td>
+                                        <td>4,500,000</td>
+                                        <td>4,500,000.0</td>
+                                        <td>2026-09</td>
+                                        <td>CH_HCM_GV_7</td>
+                                        <td>Miền Nam</td>
+                                        <td>C</td>
+                                        <td>AirPods Pro 2</td>
+                                        <td>Apple</td>
+                                        <td>Accessories</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="code-tag">TXN1670</span></td>
+                                        <td>2026-07-29</td>
+                                        <td>P009</td>
+                                        <td>ST001</td>
+                                        <td>4.0</td>
+                                        <td>40,000,000</td>
+                                        <td>160,000,000.0</td>
+                                        <td>2026-07</td>
+                                        <td>CH_HCM_Q1_0</td>
+                                        <td>Miền Nam</td>
+                                        <td>D</td>
+                                        <td>Samsung Galaxy Z Fold 5</td>
+                                        <td>Samsung</td>
+                                        <td>Smartphone</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="code-tag">TXN1829</span></td>
+                                        <td>2026-07-03</td>
+                                        <td>P004</td>
+                                        <td>ST004</td>
+                                        <td>2.0</td>
+                                        <td>21,500,000</td>
+                                        <td>43,000,000.0</td>
+                                        <td>2026-07</td>
+                                        <td>CH_HCM_TB_3</td>
+                                        <td>Miền Nam</td>
+                                        <td>B</td>
+                                        <td>Xiaomi 14 5G</td>
+                                        <td>Xiaomi</td>
+                                        <td>Smartphone</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="code-tag">TXN1814</span></td>
+                                        <td>2026-09-06</td>
+                                        <td>P005</td>
+                                        <td>ST007</td>
+                                        <td>1.0</td>
+                                        <td>5,500,000</td>
+                                        <td>5,500,000.0</td>
+                                        <td>2026-09</td>
+                                        <td>CH_HCM_Q3_6</td>
+                                        <td>Miền Nam</td>
+                                        <td>A</td>
+                                        <td>AirPods Pro 2</td>
+                                        <td>Apple</td>
+                                        <td>Accessories</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
-                    <div class="feature-box">
-                        <div class="feature-title">2. Phân Bổ Theo Loại Cửa Hàng</div>
-                        <div class="stat-val" style="color: var(--accent-purple); margin: 0.5rem 0;">Flagship</div>
-                        <div class="feature-desc">
-                            Cửa hàng loại Flagship Store đóng góp tỷ trọng doanh thu lớn nhất toàn chuỗi, theo sau bởi Key Store & Standard Store.
+
+                    <!-- 2. PREVIEW: INVENTORY (9 CỘT) -->
+                    <div style="margin-bottom: 1.5rem;">
+                        <strong style="color: var(--accent-emerald); font-size: 0.9rem;">📌 2. `processed_inventory.csv` (9/9 Cột Nhật Ký Kho & Cover Ratio)</strong>
+                        <div class="table-responsive" style="margin-top: 0.4rem;">
+                            <table style="font-size: 0.76rem;">
+                                <thead>
+                                    <tr>
+                                        <th>Log_Date</th>
+                                        <th>Store_ID</th>
+                                        <th>Product_ID</th>
+                                        <th>Beginning_Inventory</th>
+                                        <th>Received</th>
+                                        <th>Sold</th>
+                                        <th>Ending_Inventory</th>
+                                        <th>Daily_Run_Rate</th>
+                                        <th>Inventory_to_Sales_Ratio</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>2026-07-01</td>
+                                        <td>ST001</td>
+                                        <td>P009</td>
+                                        <td>9</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>9.0</td>
+                                        <td>0.39</td>
+                                        <td>22.80 (Optimal)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2026-07-01</td>
+                                        <td>ST001</td>
+                                        <td>P004</td>
+                                        <td>41</td>
+                                        <td>10</td>
+                                        <td>16</td>
+                                        <td>35.0</td>
+                                        <td>0.24</td>
+                                        <td>146.56 (Overstock)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2026-07-01</td>
+                                        <td>ST001</td>
+                                        <td>P003</td>
+                                        <td>22</td>
+                                        <td>0</td>
+                                        <td>10</td>
+                                        <td>12.0</td>
+                                        <td>0.25</td>
+                                        <td>48.00 (Overstock)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2026-07-01</td>
+                                        <td>ST002</td>
+                                        <td>P009</td>
+                                        <td>5</td>
+                                        <td>20</td>
+                                        <td>2</td>
+                                        <td>23.0</td>
+                                        <td>0.28</td>
+                                        <td>81.46 (Overstock)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2026-07-01</td>
+                                        <td>ST002</td>
+                                        <td>P005</td>
+                                        <td>46</td>
+                                        <td>0</td>
+                                        <td>10</td>
+                                        <td>36.0</td>
+                                        <td>0.18</td>
+                                        <td>195.43 (Overstock)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
-                    <div class="feature-box">
-                        <div class="feature-title">3. Quản Trị Tồn Kho Cảnh Báo</div>
-                        <div class="stat-val" style="color: var(--accent-blue); margin: 0.5rem 0;">Overstock</div>
-                        <div class="feature-desc">
-                            Hệ thống tự động phát hiện 1,337 bản ghi nhật ký kho đọng vốn (≥30 ngày bán) để chuyển Ban Cung ứng điều chuyển hàng.
+
+                    <!-- 3. PREVIEW: DAILY RUN RATE (9/9 CỘT HOÀN CHỈNH) -->
+                    <div style="margin-bottom: 1.5rem;">
+                        <strong style="color: var(--accent-amber); font-size: 0.9rem;">📌 3. `daily_run_rate.csv` (9/9 Cột Tốc Độ Bán Hàng DRR Chi Tiết)</strong>
+                        <div class="table-responsive" style="margin-top: 0.4rem;">
+                            <table style="font-size: 0.76rem;">
+                                <thead>
+                                    <tr>
+                                        <th>Store_ID</th>
+                                        <th>Product_ID</th>
+                                        <th>Total_Sales_Qty</th>
+                                        <th>Total_Sales_Amount</th>
+                                        <th>Min_Date</th>
+                                        <th>Max_Date</th>
+                                        <th>Active_Days</th>
+                                        <th>Daily_Run_Rate</th>
+                                        <th>Daily_Revenue_Run_Rate</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>ST001</td>
+                                        <td>P001</td>
+                                        <td>5.0</td>
+                                        <td>142,500,000.0</td>
+                                        <td>2026-07-19</td>
+                                        <td>2026-09-27</td>
+                                        <td>71</td>
+                                        <td>0.0704225</td>
+                                        <td>2,007,042.25 VNĐ</td>
+                                    </tr>
+                                    <tr>
+                                        <td>ST001</td>
+                                        <td>P002</td>
+                                        <td>10.0</td>
+                                        <td>304,000,000.0</td>
+                                        <td>2026-07-07</td>
+                                        <td>2026-09-29</td>
+                                        <td>85</td>
+                                        <td>0.1176471</td>
+                                        <td>3,576,470.59 VNĐ</td>
+                                    </tr>
+                                    <tr>
+                                        <td>ST001</td>
+                                        <td>P003</td>
+                                        <td>19.0</td>
+                                        <td>493,500,000.0</td>
+                                        <td>2026-07-07</td>
+                                        <td>2026-09-20</td>
+                                        <td>76</td>
+                                        <td>0.2500000</td>
+                                        <td>6,493,421.05 VNĐ</td>
+                                    </tr>
+                                    <tr>
+                                        <td>ST001</td>
+                                        <td>P004</td>
+                                        <td>16.0</td>
+                                        <td>337,000,000.0</td>
+                                        <td>2026-07-19</td>
+                                        <td>2026-09-23</td>
+                                        <td>67</td>
+                                        <td>0.2388060</td>
+                                        <td>5,029,850.75 VNĐ</td>
+                                    </tr>
+                                    <tr>
+                                        <td>ST001</td>
+                                        <td>P005</td>
+                                        <td>17.0</td>
+                                        <td>87,500,000.0</td>
+                                        <td>2026-07-17</td>
+                                        <td>2026-09-28</td>
+                                        <td>74</td>
+                                        <td>0.2297297</td>
+                                        <td>1,182,432.43 VNĐ</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- LƯỚI 2 CỘT CHO 3 FILE CON LẠI -->
+                    <div class="grid-2">
+                        <!-- 4. PREVIEW: STORE PERFORMANCE (7 CỘT) -->
+                        <div>
+                            <strong style="color: var(--accent-blue); font-size: 0.88rem;">📌 4. `store_performance.csv` (7/7 Cột Target % Achievement)</strong>
+                            <div class="table-responsive" style="margin-top: 0.4rem;">
+                                <table style="font-size: 0.74rem;">
+                                    <thead>
+                                        <tr>
+                                            <th>Store_ID</th>
+                                            <th>Month_Year</th>
+                                            <th>Actual_Revenue</th>
+                                            <th>Total_Orders</th>
+                                            <th>Total_Items_Sold</th>
+                                            <th>Target_Revenue</th>
+                                            <th>Achievement_Pct</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>ST001</td>
+                                            <td>2026-07</td>
+                                            <td>886,500,000.0</td>
+                                            <td>28</td>
+                                            <td>35.0</td>
+                                            <td>1,459,770,415</td>
+                                            <td>60.73%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>ST001</td>
+                                            <td>2026-08</td>
+                                            <td>1,123,000,000.0</td>
+                                            <td>42</td>
+                                            <td>60.0</td>
+                                            <td>1,413,427,546</td>
+                                            <td>79.45%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>ST001</td>
+                                            <td>2026-09</td>
+                                            <td>1,187,000,000.0</td>
+                                            <td>37</td>
+                                            <td>56.0</td>
+                                            <td>1,547,655,242</td>
+                                            <td>76.70%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>ST002</td>
+                                            <td>2026-07</td>
+                                            <td>980,000,000.0</td>
+                                            <td>36</td>
+                                            <td>48.0</td>
+                                            <td>831,475,314</td>
+                                            <td><span style="color:#34d399;">117.86%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>ST002</td>
+                                            <td>2026-08</td>
+                                            <td>1,372,000,000.0</td>
+                                            <td>40</td>
+                                            <td>57.0</td>
+                                            <td>819,835,355</td>
+                                            <td><span style="color:#34d399;">167.35%</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- 5. PREVIEW: STORES (8 CỘT) -->
+                        <div>
+                            <strong style="color: var(--accent-indigo); font-size: 0.88rem;">📌 5. `processed_stores.csv` (8/8 Cột Master Cửa Hàng)</strong>
+                            <div class="table-responsive" style="margin-top: 0.4rem;">
+                                <table style="font-size: 0.74rem;">
+                                    <thead>
+                                        <tr>
+                                            <th>Store_ID</th>
+                                            <th>Store_Name</th>
+                                            <th>Region</th>
+                                            <th>RSM</th>
+                                            <th>AM</th>
+                                            <th>Type</th>
+                                            <th>Avg_Monthly_Revenue</th>
+                                            <th>Classification</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>ST001</td>
+                                            <td>CH_HCM_Q1_0</td>
+                                            <td>Miền Nam</td>
+                                            <td>SangDT</td>
+                                            <td>TruongMN</td>
+                                            <td>D</td>
+                                            <td>1,065,500,000.0</td>
+                                            <td>Key_Store</td>
+                                        </tr>
+                                        <tr>
+                                            <td>ST002</td>
+                                            <td>CH_HCM_Q3_1</td>
+                                            <td>Miền Nam</td>
+                                            <td>SangDT</td>
+                                            <td>TruongMN</td>
+                                            <td>A</td>
+                                            <td>1,134,000,000.0</td>
+                                            <td>Flagship_Store</td>
+                                        </tr>
+                                        <tr>
+                                            <td>ST003</td>
+                                            <td>CH_HCM_GV_2</td>
+                                            <td>Miền Nam</td>
+                                            <td>SangDT</td>
+                                            <td>TruongMN</td>
+                                            <td>C</td>
+                                            <td>1,082,666,666.67</td>
+                                            <td>Key_Store</td>
+                                        </tr>
+                                        <tr>
+                                            <td>ST004</td>
+                                            <td>CH_HCM_TB_3</td>
+                                            <td>B</td>
+                                            <td>Miền Nam</td>
+                                            <td>TruongMN</td>
+                                            <td>B</td>
+                                            <td>1,026,166,666.67</td>
+                                            <td>Key_Store</td>
+                                        </tr>
+                                        <tr>
+                                            <td>ST005</td>
+                                            <td>CH_BD_TDM_4</td>
+                                            <td>Miền Nam</td>
+                                            <td>SangDT</td>
+                                            <td>MinhDT</td>
+                                            <td>C</td>
+                                            <td>1,388,166,666.67</td>
+                                            <td>Flagship_Store</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 6. PREVIEW: PRODUCTS (5 CỘT) -->
+                    <div style="margin-top: 1rem;">
+                        <strong style="color: var(--accent-rose); font-size: 0.88rem;">📌 6. `processed_products.csv` (5/5 Cột Master Sản Phẩm & Giá Niêm Yết)</strong>
+                        <div class="table-responsive" style="margin-top: 0.4rem;">
+                            <table style="font-size: 0.76rem;">
+                                <thead>
+                                    <tr>
+                                        <th>Product_ID</th>
+                                        <th>Product_Name</th>
+                                        <th>Brand</th>
+                                        <th>Category</th>
+                                        <th>Base_Price</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>P001</td>
+                                        <td>iPhone 15 Pro Max 256GB</td>
+                                        <td>Apple</td>
+                                        <td>Smartphone</td>
+                                        <td>29,500,000 VNĐ</td>
+                                    </tr>
+                                    <tr>
+                                        <td>P002</td>
+                                        <td>Samsung Galaxy S24 Ultra</td>
+                                        <td>Samsung</td>
+                                        <td>Smartphone</td>
+                                        <td>31,000,000 VNĐ</td>
+                                    </tr>
+                                    <tr>
+                                        <td>P003</td>
+                                        <td>MacBook Air M3 8GB 256GB</td>
+                                        <td>Apple</td>
+                                        <td>Laptop</td>
+                                        <td>27,000,000 VNĐ</td>
+                                    </tr>
+                                    <tr>
+                                        <td>P004</td>
+                                        <td>Xiaomi 14 5G</td>
+                                        <td>Xiaomi</td>
+                                        <td>Smartphone</td>
+                                        <td>22,000,000 VNĐ</td>
+                                    </tr>
+                                    <tr>
+                                        <td>P005</td>
+                                        <td>AirPods Pro 2</td>
+                                        <td>Apple</td>
+                                        <td>Accessories</td>
+                                        <td>6,000,000 VNĐ</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
 
+            <!-- 2. BỘ 6 KPI KẾT QUẢ ĐẠT ĐƯỢC CHÍNH XÁC THỰC TẾ -->
             <div class="content-card">
                 <div class="card-header-title">
-                    <i class="fa-solid fa-rocket"></i> Đề Xuất Phát Triển Mở Rộng Hệ Thống (Future Enhancements)
+                    <i class="fa-solid fa-chart-line"></i> 6 Chỉ Số Kết Quả Vận Hành & Kiểm Thử Đạt Được (Empirical Metrics Summary)
                 </div>
-                <div class="grid-2">
-                    <div class="feature-box">
-                        <div class="feature-title"><i class="fa-solid fa-clock"></i> 1. Tự động hóa Airflow Orchestration</div>
+                <div class="grid-3" style="margin-bottom: 1.5rem;">
+                    <div class="feature-box" style="border-top: 3px solid var(--accent-emerald);">
+                        <div class="feature-title">1. Tổng Doanh Thu Chuỗi Bán Lẻ</div>
+                        <div class="stat-val" style="color: var(--accent-emerald); margin: 0.5rem 0;">56.6 Tỷ VNĐ</div>
                         <div class="feature-desc">
-                            Đóng gói pipeline Python thành các DAGs trên Apache Airflow để lập lịch chạy ETL tự động hàng ngày lúc 01:00 AM.
+                            Tổng doanh thu thực tế chốt Quý 3/2026 từ 1,800 đơn hàng sạch chuẩn hóa (chính xác 56,597,180,000 VNĐ).
                         </div>
                     </div>
-                    <div class="feature-box">
-                        <div class="feature-title"><i class="fa-solid fa-shield-halved"></i> 2. Triển khai dbt Data Testing</div>
+                    <div class="feature-box" style="border-top: 3px solid var(--accent-purple);">
+                        <div class="feature-title">2. Doanh Thu Được Bảo Toàn</div>
+                        <div class="stat-val" style="color: var(--accent-purple); margin: 0.5rem 0;">380+ Triệu</div>
                         <div class="feature-desc">
-                            Bổ sung dbt (data build tool) để thực thi automated assertion tests cho schema Data Warehouse trên BigQuery.
+                            Bổ khuyết thành công 19 bản ghi Null Quantity bằng quy tắc <span class="code-tag">Unit_Price / Base_Price = 1.0</span> mà không phải loại bỏ dữ liệu.
+                        </div>
+                    </div>
+                    <div class="feature-box" style="border-top: 3px solid var(--accent-blue);">
+                        <div class="feature-title">3. Tỷ Lệ Đạt Target Trung Bình</div>
+                        <div class="stat-val" style="color: var(--accent-blue); margin: 0.5rem 0;">99.29%</div>
+                        <div class="feature-desc">
+                            Tỷ lệ hoàn thành chỉ tiêu doanh thu kế hoạch trung bình toàn chuỗi 15 điểm bán trong Quý 3/2026.
+                        </div>
+                    </div>
+                    <div class="feature-box" style="border-top: 3px solid var(--accent-indigo);">
+                        <div class="feature-title">4. Kiểm Thử Pytest Tự Động</div>
+                        <div class="stat-val" style="color: var(--accent-indigo); margin: 0.5rem 0;">100% Pass</div>
+                        <div class="feature-desc">
+                            Vượt qua 5/5 bài kiểm thử unit test tự động (<span class="code-tag">pytest tests/ -v</span>) bảo đảm tính chính xác của thuật toán làm sạch.
+                        </div>
+                    </div>
+                    <div class="feature-box" style="border-top: 3px solid var(--accent-rose);">
+                        <div class="feature-title">5. Cảnh Báo Đọng Vốn Kho</div>
+                        <div class="stat-val" style="color: var(--accent-rose); margin: 0.5rem 0;">1,337 Logs</div>
+                        <div class="feature-desc">
+                            Phát hiện 1,337 nhật ký tồn kho ở trạng thái Overstock (&ge;30 ngày bán) chiếm 99.0% tổng số log kho cần xử lý điều chuyển.
+                        </div>
+                    </div>
+                    <div class="feature-box" style="border-top: 3px solid var(--accent-amber);">
+                        <div class="feature-title">6. Nhóm Cửa Hàng Doanh Thu Top 1</div>
+                        <div class="stat-val" style="color: var(--accent-amber); margin: 0.5rem 0;">22.6 Tỷ</div>
+                        <div class="feature-desc">
+                            Nhóm Cửa hàng Loại C (Standard Store) dẫn đầu toàn chuỗi với tổng doanh thu 22.6 Tỷ VNĐ (chiếm 39.91% tỷ trọng).
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. PHÂN BỔ DOANH THU THEO LOẠI CỬA HÀNG (POWER BI MEASURE RESULT) -->
+            <div class="content-card">
+                <div class="card-header-title">
+                    <i class="fa-solid fa-pie-chart"></i> Phân Bổ Tỷ Trọng Doanh Thu Theo Phân Loại Cửa Hàng (Power BI Result)
+                </div>
+                <div class="grid-4" style="margin-bottom: 1.5rem;">
+                    <div class="feature-box" style="background: rgba(255,255,255,0.02);">
+                        <div class="feature-title" style="color: var(--accent-purple);">🏪 Loại C (Standard Store)</div>
+                        <div class="stat-val" style="color: var(--text-primary); font-size: 1.3rem; margin: 0.4rem 0;">22.6 Tỷ VNĐ</div>
+                        <div class="feature-desc">Tỷ trọng: <strong>39.91%</strong> (6 cửa hàng)</div>
+                    </div>
+                    <div class="feature-box" style="background: rgba(255,255,255,0.02);">
+                        <div class="feature-title" style="color: var(--accent-rose);">🏪 Loại D (Micro Store)</div>
+                        <div class="stat-val" style="color: var(--text-primary); font-size: 1.3rem; margin: 0.4rem 0;">11.7 Tỷ VNĐ</div>
+                        <div class="feature-desc">Tỷ trọng: <strong>20.68%</strong> (4 cửa hàng)</div>
+                    </div>
+                    <div class="feature-box" style="background: rgba(255,255,255,0.02);">
+                        <div class="feature-title" style="color: var(--accent-emerald);">🏪 Loại B (Key Store)</div>
+                        <div class="stat-val" style="color: var(--text-primary); font-size: 1.3rem; margin: 0.4rem 0;">11.5 Tỷ VNĐ</div>
+                        <div class="feature-desc">Tỷ trọng: <strong>20.26%</strong> (3 cửa hàng)</div>
+                    </div>
+                    <div class="feature-box" style="background: rgba(255,255,255,0.02);">
+                        <div class="feature-title" style="color: var(--accent-blue);">🏪 Loại A (Flagship Store)</div>
+                        <div class="stat-val" style="color: var(--text-primary); font-size: 1.3rem; margin: 0.4rem 0;">10.8 Tỷ VNĐ</div>
+                        <div class="feature-desc">Tỷ trọng: <strong>19.15%</strong> (2 cửa hàng)</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. CHI TIẾT 5 BÀI KIỂM THỬ PYTEST TỰ ĐỘNG -->
+            <div class="content-card">
+                <div class="card-header-title">
+                    <i class="fa-solid fa-vial-circle-check"></i> Chi Tiết Kết Quả 5 Bài Kiểm Thử Pytest Tự Động (Automated Testing Suite)
+                </div>
+                <p style="color: var(--text-secondary); margin-bottom: 1.25rem;">
+                    Bộ kiểm thử tự động được thực thi bằng lệnh <span class="code-tag">pytest tests/ -v</span> đạt <strong>100% Pass Rate (5/5 Tests)</strong>, đảm bảo tính đúng đắn của thuật toán làm sạch, công thức tính chỉ số và logic phân loại cửa hàng:
+                </p>
+
+                <div class="grid-3">
+                    <!-- TEST MODULE 1 -->
+                    <div class="feature-box" style="border-top: 3px solid var(--accent-purple); display: flex; flex-direction: column; justify-content: space-between;">
+                        <div>
+                            <div class="feature-title" style="color: var(--accent-purple); font-size: 0.95rem; font-weight: 700; margin-bottom: 0.85rem; word-break: break-word;">
+                                <i class="fa-solid fa-broom"></i> 1. test_cleaner.py
+                            </div>
+                            <div style="display: flex; flex-direction: column; gap: 0.65rem;">
+                                <div style="background: rgba(0,0,0,0.3); padding: 0.6rem 0.7rem; border-radius: 6px; border: 1px solid rgba(168, 85, 247, 0.2);">
+                                    <div style="font-size: 0.82rem; font-weight: 700; color: #c084fc; font-family: monospace;">
+                                        🧪 test_clean_transactions()
+                                    </div>
+                                    <div style="font-size: 0.78rem; color: var(--text-secondary); margin-top: 0.2rem; line-height: 1.4;">
+                                        Loại bỏ 100% bản ghi trùng lặp POS & tính tổng tiền hóa đơn.
+                                    </div>
+                                    <div style="font-family: monospace; font-size: 0.74rem; color: #e9d5ff; background: rgba(168, 85, 247, 0.12); padding: 0.2rem 0.4rem; border-radius: 4px; margin-top: 0.3rem; display: inline-block;">
+                                        assert len(df) == 1
+                                    </div>
+                                </div>
+
+                                <div style="background: rgba(0,0,0,0.3); padding: 0.6rem 0.7rem; border-radius: 6px; border: 1px solid rgba(168, 85, 247, 0.2);">
+                                    <div style="font-size: 0.82rem; font-weight: 700; color: #c084fc; font-family: monospace;">
+                                        🧪 test_clean_inventory_logs()
+                                    </div>
+                                    <div style="font-size: 0.78rem; color: var(--text-secondary); margin-top: 0.2rem; line-height: 1.4;">
+                                        Khôi phục tồn cuối: Ending = Beginning + Received - Sold.
+                                    </div>
+                                    <div style="font-family: monospace; font-size: 0.74rem; color: #e9d5ff; background: rgba(168, 85, 247, 0.12); padding: 0.2rem 0.4rem; border-radius: 4px; margin-top: 0.3rem; display: inline-block;">
+                                        10 + 5 - 2 = 13.0
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="margin-top: 0.85rem; font-size: 0.82rem; color: #a7f3d0; font-weight: 700; background: rgba(16, 185, 129, 0.1); padding: 0.3rem 0.6rem; border-radius: 4px; text-align: center;">
+                            🎯 Kết quả: ✅ 2/2 Tests PASSED
+                        </div>
+                    </div>
+
+                    <!-- TEST MODULE 2 -->
+                    <div class="feature-box" style="border-top: 3px solid var(--accent-emerald); display: flex; flex-direction: column; justify-content: space-between;">
+                        <div>
+                            <div class="feature-title" style="color: var(--accent-emerald); font-size: 0.95rem; font-weight: 700; margin-bottom: 0.85rem; word-break: break-word;">
+                                <i class="fa-solid fa-calculator"></i> 2. test_metrics.py
+                            </div>
+                            <div style="display: flex; flex-direction: column; gap: 0.65rem;">
+                                <div style="background: rgba(0,0,0,0.3); padding: 0.6rem 0.7rem; border-radius: 6px; border: 1px solid rgba(16, 185, 129, 0.2);">
+                                    <div style="font-size: 0.82rem; font-weight: 700; color: #34d399; font-family: monospace;">
+                                        🧪 test_daily_run_rate()
+                                    </div>
+                                    <div style="font-size: 0.78rem; color: var(--text-secondary); margin-top: 0.2rem; line-height: 1.4;">
+                                        Tốc độ bán hàng trung bình ngày (DRR per Store & Product).
+                                    </div>
+                                    <div style="font-family: monospace; font-size: 0.74rem; color: #6ee7b7; background: rgba(16, 185, 129, 0.12); padding: 0.2rem 0.4rem; border-radius: 4px; margin-top: 0.3rem; display: inline-block;">
+                                        DRR = 10 / 10 = 1.0
+                                    </div>
+                                </div>
+
+                                <div style="background: rgba(0,0,0,0.3); padding: 0.6rem 0.7rem; border-radius: 6px; border: 1px solid rgba(16, 185, 129, 0.2);">
+                                    <div style="font-size: 0.82rem; font-weight: 700; color: #34d399; font-family: monospace;">
+                                        🧪 test_inventory_to_sales_ratio()
+                                    </div>
+                                    <div style="font-size: 0.78rem; color: var(--text-secondary); margin-top: 0.2rem; line-height: 1.4;">
+                                        Số ngày trang trải tồn kho (Days of Cover).
+                                    </div>
+                                    <div style="font-family: monospace; font-size: 0.74rem; color: #6ee7b7; background: rgba(16, 185, 129, 0.12); padding: 0.2rem 0.4rem; border-radius: 4px; margin-top: 0.3rem; display: inline-block;">
+                                        Days = 15 / 3 = 5.0 ngày
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="margin-top: 0.85rem; font-size: 0.82rem; color: #a7f3d0; font-weight: 700; background: rgba(16, 185, 129, 0.1); padding: 0.3rem 0.6rem; border-radius: 4px; text-align: center;">
+                            🎯 Kết quả: ✅ 2/2 Tests PASSED
+                        </div>
+                    </div>
+
+                    <!-- TEST MODULE 3 -->
+                    <div class="feature-box" style="border-top: 3px solid var(--accent-blue); display: flex; flex-direction: column; justify-content: space-between;">
+                        <div>
+                            <div class="feature-title" style="color: var(--accent-blue); font-size: 0.95rem; font-weight: 700; margin-bottom: 0.85rem; word-break: break-word;">
+                                <i class="fa-solid fa-sliders"></i> 3. test_shop_classifier.py
+                            </div>
+                            <div style="display: flex; flex-direction: column; gap: 0.65rem;">
+                                <div style="background: rgba(0,0,0,0.3); padding: 0.6rem 0.7rem; border-radius: 6px; border: 1px solid rgba(56, 189, 248, 0.2);">
+                                    <div style="font-size: 0.82rem; font-weight: 700; color: #38bdf8; font-family: monospace; word-break: break-all;">
+                                        🧪 test_config_driven_shop_classifier()
+                                    </div>
+                                    <div style="font-size: 0.78rem; color: var(--text-secondary); margin-top: 0.2rem; line-height: 1.4;">
+                                        Đọc file YAML động, xếp loại cửa hàng (*Flagship, Micro*) & cảnh báo đọng vốn.
+                                    </div>
+                                    <div style="font-family: monospace; font-size: 0.74rem; color: #7dd3fc; background: rgba(56, 189, 248, 0.12); padding: 0.25rem 0.4rem; border-radius: 4px; margin-top: 0.3rem; display: inline-block;">
+                                        Super Star (>=110%)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="margin-top: 0.85rem; font-size: 0.82rem; color: #a7f3d0; font-weight: 700; background: rgba(16, 185, 129, 0.1); padding: 0.3rem 0.6rem; border-radius: 4px; text-align: center;">
+                            🎯 Kết quả: ✅ 1/1 Test PASSED
                         </div>
                     </div>
                 </div>
