@@ -20,6 +20,72 @@ Hệ thống tiếp nhận 5 luồng dữ liệu thô (Transactions, Inventory L
 
 ---
 
+## 📂 Cấu Trúc Thư Mục & Tệp Dữ Liệu Dự Án (Directory Structure)
+
+```text
+cellphones_test/
+├── assets/                          # Tài nguyên hình ảnh, sơ đồ ERD & Power BI
+│   └── images/
+│       ├── ERD.png                  # Sơ đồ Data Warehouse Star Schema ERD
+│       └── power bi.png             # Giao diện Dashboard Power BI Operational
+├── configs/                         # Cấu hình hệ thống & Quản trị Quy tắc (Rule Engine)
+│   ├── pipeline_config.yaml         # Cấu hình đường dẫn dữ liệu & thông số ETL
+│   └── shop_classifier.yaml         # Config-Driven Rule Engine phân loại cửa hàng
+├── rawdata_test_ae/                 # 5 luồng dữ liệu thô đầu vào (.csv)
+│   ├── Transactions.csv             # Giao dịch bán hàng POS
+│   ├── Inventory_Logs.csv           # Nhật ký xuất nhập tồn daily
+│   ├── Store_Info.csv               # Danh mục master cửa hàng
+│   ├── Products.csv                 # Danh mục sản phẩm & giá niêm yết
+│   └── Targets.csv                  # Chỉ tiêu doanh thu kế hoạch
+├── data/                            # Dữ liệu sạch đã qua xử lý ETL (.csv)
+│   └── processed/                   # 6 tệp dữ liệu đã làm sạch & biến đổi sẵn sàng nạp DWH
+│       ├── processed_transactions.csv
+│       ├── processed_inventory.csv
+│       ├── processed_stores.csv
+│       ├── processed_products.csv
+│       ├── daily_run_rate.csv
+│       └── store_performance.csv
+├── docs/                            # Tài liệu kỹ thuật chi tiết
+│   ├── architecture/                # Kiến trúc DWH 3 tầng
+│   ├── governance/                  # Hướng dẫn quản trị codebase
+│   └── powerbi_specs/               # Thuyết minh chỉ số DAX
+├── models/                          # Mô hình SQL Data Warehouse 3 tầng (BigQuery DDL/DML)
+│   ├── staging/                     # Tầng Staging (staging_*)
+│   ├── intermediate/                # Tầng Intermediate (dim_products_scd2.sql, int_daily_inventory_sales.sql)
+│   └── marts/                       # Tầng Marts (dim_store.sql, dim_product.sql, fact_sales.sql, fact_inventory_daily.sql)
+├── notebooks/                       # 6 File Jupyter Notebook EDA Phân tích Dữ liệu
+│   ├── eda_01_transactions.ipynb
+│   ├── eda_02_inventory_logs.ipynb
+│   ├── eda_03_store_info.ipynb
+│   ├── eda_04_products.ipynb
+│   ├── eda_05_targets.ipynb
+│   └── eda_06_integrated_analytics.ipynb
+├── powerbi/                         # File Báo cáo & Semantic Model Power BI
+│   ├── Cellphones_Operational_Dashboard.pbix
+│   ├── semantic_model.json          # Cấu hình Semantic Model & Star Schema Relationships
+│   ├── dax_measures.dax             # Mã nguồn DAX Measures
+│   └── virtual_tables.dax           # Mã nguồn DAX Virtual Tables
+├── src/                             # Mã nguồn Python ETL Pipeline & Business Logic Engine
+│   ├── classifiers/
+│   │   └── shop_classifier.py       # Config-Driven Rule Engine phân loại cửa hàng
+│   ├── pipeline/
+│   │   ├── cleaner.py               # Module làm sạch & khử trùng lặp dữ liệu
+│   │   ├── metrics_calculator.py    # Module tính toán DRR & Inventory Cover Ratio
+│   │   ├── transformer.py           # Module biến đổi & ghép nối dữ liệu
+│   │   └── runner.py                # Script điều phối chính ETL Runner
+│   └── utils/                       # Hàm tiện ích logging & IO
+├── tests/                           # Bộ 5 Automated Unit Tests (Pytest)
+│   ├── test_cleaner.py              # Test khử trùng lặp & khôi phục tồn kho
+│   ├── test_metrics.py              # Test công thức DRR & Inventory Cover Ratio
+│   └── test_shop_classifier.py      # Test Config-Driven Rule Engine
+├── index.html                       # Trang Live Web Presentation Portal 5 Tab
+├── PROJECT_REPORT.md                # Báo cáo kỹ thuật tổng hợp chi tiết
+├── README.md                        # Tài liệu hướng dẫn & tổng quan dự án
+└── requirements.txt                 # Các thư viện Python phụ thuộc
+```
+
+---
+
 ## 📑 BÁO CÁO TOÀN DIỆN & BẢN TRÌNH BÀY (LIÊN KẾT ĐỌC BÁO CÁO)
 
 Dự án cung cấp 2 phương thức theo dõi báo cáo đánh giá chuyên sâu dành cho nhà tuyển dụng và các kỹ sư dữ liệu:
