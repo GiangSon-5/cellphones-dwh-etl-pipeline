@@ -58,7 +58,6 @@ cellphones_test/
 │   └── eda_06_integrated_analytics.ipynb
 ├── powerbi/                         # File Báo cáo & Semantic Model Power BI
 │   ├── Cellphones_Operational_Dashboard.pbix
-│   ├── semantic_model.json          # Cấu hình Semantic Model & Star Schema Relationships
 │   ├── dax_measures.dax             # Mã nguồn DAX Measures
 │   └── virtual_tables.dax           # Mã nguồn DAX Virtual Tables
 ├── src/                             # Mã nguồn Python ETL Pipeline & Business Logic Engine
